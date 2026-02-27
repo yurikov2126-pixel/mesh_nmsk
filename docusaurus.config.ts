@@ -27,8 +27,8 @@ if (typeof globalThis !== 'undefined' && 'localStorage' in globalThis) {
 const enablePwa = process.env.NODE_ENV === 'production';
 
 const config: Config = {
-  title: 'MeshWorks',
-  tagline: 'База знаний MeshWorks',
+  title: 'Mesh_NMSK',
+  tagline: 'База знаний Mesh_NMSK',
   favicon: 'img/favicon-light.png',
   headTags: [
     {
@@ -49,9 +49,9 @@ const config: Config = {
         '@type': 'SiteNavigationElement',
         name: ['База знаний', 'Контрибьютинг', 'О нас'],
         url: [
-          'https://wiki.meshworks.ru/',
-          'https://wiki.meshworks.ru/wiki/how-to-edit',
-          'https://wiki.meshworks.ru/about',
+          'https://wiki.meshtastik-nmsk.ru/',
+          'https://wiki.meshtastik-nmsk.ru/how-to-edit',
+          'https://wiki.meshtastik-nmsk.ru/about',
         ],
       }),
     },
@@ -63,12 +63,12 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'MeshWorks Wiki',
-        url: 'https://wiki.meshworks.ru',
+        name: 'Mesh_NMSK Wiki',
+        url: 'https://wiki.meshtastik-nmsk.ru',
         inLanguage: 'ru',
         potentialAction: {
           '@type': 'SearchAction',
-          target: 'https://wiki.meshworks.ru/search?q={search_term_string}',
+          target: 'https://wiki.meshtastik-nmsk.ru/search?q={search_term_string}',
           'query-input': 'required name=search_term_string',
         },
       }),
@@ -82,12 +82,11 @@ const config: Config = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'MeshWorks',
-        url: 'https://meshworks.ru',
-        logo: 'https://wiki.meshworks.ru/img/logo-light.png',
+        url: 'https://t.me/meshtastic_nmsk',
+        logo: 'https://wiki.meshtastik-nmsk.ru/img/logo-light.png',
         sameAs: [
-          'https://t.me/meshwrks',
+          'https://t.me/meshtastic_nmsk',
           'https://www.youtube.com/@meshwrks',
-          'https://boosty.to/meshworks',
         ],
       }),
     },
@@ -110,7 +109,7 @@ const config: Config = {
   future: {
     v4: true,
   },
-  url: 'https://wiki.meshworks.ru',
+  url: 'https://wiki.meshtastik-nmsk.ru',
   baseUrl: '/',
   trailingSlash: false,
   stylesheets: [
@@ -138,7 +137,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           breadcrumbs: true,
-          editUrl: 'https://github.com/MeshWorksRussia/wiki.meshworks.ru/edit/main/',
+          editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/main/',
           admonitions: {
             keywords: ['favorite'],
             extendDefaults: true,
@@ -211,7 +210,7 @@ const config: Config = {
         routeBasePath: '/',
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        editUrl: 'https://github.com/MeshWorksRussia/wiki.meshworks.ru/edit/main/',
+        editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/main/',
       },
     ],
     ...(enablePwa
@@ -244,16 +243,16 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'MeshWorks Wiki — русскоязычная база знаний о Meshtastic, LoRa mesh-сетях и устройствах для автономной связи.',
+          'Mesh_NMSK — русскоязычная база знаний о Meshtastic, LoRa mesh-сетях и устройствах для автономной связи.',
       },
       {
         name: 'keywords',
         content:
-          'meshtastic, meshworks, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
+          'meshtastic, Mesh_NMSK, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora, Новомосковск, Узловая, Донской, Кимовск',
       },
       {
         property: 'og:site_name',
-        content: 'MeshWorks Wiki',
+        content: 'Mesh_NMSK Wiki',
       },
       {
         property: 'og:locale',
@@ -264,13 +263,13 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     breadcrumbs: {
-      homePageLabel: 'MeshWorks',
+      homePageLabel: 'Mesh_NMSK',
     },
     // Algolia is disabled; using local search plugin
     navbar: {
-      title: 'MeshWorks',
+      title: 'Mesh_NMSK',
       logo: {
-        alt: 'MeshWorks',
+        alt: 'Mesh_NMSK',
         src: 'img/logo-light.png',
         srcDark: 'img/logo-dark.png',
       },
@@ -312,16 +311,14 @@ const config: Config = {
           html: [
             "<div class='footer__links-row'>",
             "<a href='https://www.youtube.com/@meshwrks' target='_blank' rel='noreferrer noopener'>YouTube</a>",
-            "<a href='https://boosty.to/meshworks' target='_blank' rel='noreferrer noopener'>Boosty</a>",
-            "<a href='https://t.me/meshwrks' target='_blank' rel='noreferrer noopener'>Telegram</a>",
-            "<a href='https://status.meshworks.ru/status/meshworks' target='_blank' rel='noreferrer noopener'>Status Page</a>",
-            "<a href='https://malla.meshworks.ru/' target='_blank' rel='noreferrer noopener'>Malla</a>",
+            "<a href='https://t.me/meshtastic_nmsk' target='_blank' rel='noreferrer noopener'>Telegram</a>",
+            "<a href='https://malla.asound.keenetic.pro/' target='_blank' rel='noreferrer noopener'>Malla</a>",
             '</div>',
             "<div class='footer__trademark'>Meshtastic® is a registered trademark of Meshtastic LLC.</div>",
           ].join(''),
         },
       ],
-      copyright: `© ${new Date().getFullYear()} MeshWorks`,
+      copyright: `© ${new Date().getFullYear()} Meshtastic-Новомосковск`,
     },
     prism: {
       theme: prismThemes.github,

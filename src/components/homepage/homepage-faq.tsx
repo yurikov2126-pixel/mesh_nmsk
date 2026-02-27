@@ -9,10 +9,10 @@ type FaqItem = {
 
 const items: FaqItem[] = [
   {
-    question: "Что такое MeshWorks?",
+    question: "Что такое Mesh_NMSK?",
     answer: (
       <>
-        MeshWorks — сообщество энтузиастов mesh‑сетей. Мы создаём инструменты для автономной связи, собираем базу знаний и
+          Mesh_NMSK — сообщество энтузиастов mesh‑сетей в Новомосковске и близлежащих городах. Мы создаём инструменты для автономной связи, собираем базу знаний и
         помогаем запускать сети в реальных сценариях.
       </>
     ),
@@ -22,8 +22,8 @@ const items: FaqItem[] = [
     answer: (
       <>
         Основной канал и чат —{" "}
-        <a href="https://t.me/meshwrks" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
-          Telegram MeshWorks
+        <a href="https://t.me/meshtastic_nmsk" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
+          Telegram Mesh_NMSK
         </a>
         . Там же — анонсы, помощь новичкам и обсуждения.
       </>
@@ -107,18 +107,6 @@ const items: FaqItem[] = [
     ),
   },
   {
-    question: "Как поддержать MeshWorks?",
-    answer: (
-      <>
-        Если проект полезен — поддержите нас на{" "}
-        <a href="https://boosty.to/meshworks" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
-          Boosty
-        </a>
-        . Это помогает развивать инструменты и контент.
-      </>
-    ),
-  },
-  {
     question: "Цифры сообщества",
     answer: (
       <>
@@ -130,7 +118,7 @@ const items: FaqItem[] = [
     question: "Где смотреть эфиры и обзоры?",
     answer: (
       <>
-        Канал MeshWorks на{" "}
+        Канал про Meshtastic на русском языке{" "}
         <a
           href="https://www.youtube.com/@meshworks_ru?sub_confirmation=1"
           target="_blank"

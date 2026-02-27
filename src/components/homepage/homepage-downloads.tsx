@@ -88,7 +88,7 @@ export function HomepageDownloads() {
     {
       title: "Карта сети",
       description: "Публичная карта узлов и покрытий MeshWorks.",
-      href: "https://malla.meshworks.ru/",
+      href: "https://malla.asound.keenetic.pro/",
       icon: "mapPin",
     },
     {
@@ -99,7 +99,7 @@ export function HomepageDownloads() {
     },
     {
       title: "Форум",
-      description: "Обсуждения и база знаний в формате сообщества.",
+      description: "Обсуждения и база знаний в формате основного сообщества.",
       href: "https://t.me/meshwrks",
       icon: "message",
       disabled: true,
