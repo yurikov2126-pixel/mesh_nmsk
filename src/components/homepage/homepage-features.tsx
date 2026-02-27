@@ -41,7 +41,7 @@ export function HomepageFeatures() {
     <section aria-label="Features">
       <div className={styles.sectionHeader}>
         <h2>Технологии</h2>
-        <p>Mesh‑связь может быть разной. Ниже — ключевые протоколы и стеки, с которыми работает сообщество MeshWorks.</p>
+        <p>Mesh‑связь может быть разной. Ниже — ключевые протоколы и стеки, с которыми работает сообщество Mesh_NMSK.</p>
       </div>
 
       <div className={styles.grid3}>

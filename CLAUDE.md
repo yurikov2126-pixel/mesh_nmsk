@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-MeshWorks Wiki — a Russian-language Docusaurus 3 documentation site about Meshtastic, LoRa mesh networks, and MeshWorks infrastructure. Deployed at https://wiki.meshworks.ru.
+Mesh_NMSK Wiki — a Russian-language Docusaurus 3 documentation site about Meshtastic, LoRa mesh networks, and Mesh_NMSK infrastructure. Deployed at https://wiki.meshworks.ru.
 
 ## Commands
 
