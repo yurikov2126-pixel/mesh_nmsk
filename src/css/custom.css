@@ -1,0 +1,1184 @@
+/**
+ * Global theme overrides for Docusaurus classic.
+ */
+
+@import './theme-tokens.css';
+@import './meshtastic-home.css';
+
+/* === Base Typography === */
+body {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Buttons (Docs-style) === */
+.button {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.button--primary {
+  background: var(--mesh-accent);
+  border-color: color-mix(in srgb, var(--mesh-accent) 80%, #000 20%);
+  color: #0f1216;
+  box-shadow: none;
+}
+
+html[data-theme='light'] .button--primary {
+  border-color: color-mix(in srgb, var(--mesh-accent) 62%, #0b121a 38%);
+  box-shadow: 0 10px 22px rgba(18, 24, 35, 0.12), 0 0 0 1px color-mix(in srgb, var(--mesh-accent) 22%, transparent);
+}
+
+.button--primary:hover {
+  background: var(--mesh-accent-strong);
+  border-color: var(--mesh-accent-strong);
+  color: #0f1216;
+}
+
+.button--primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--mesh-accent) 18%, transparent);
+}
+
+.button--secondary {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--ifm-font-color-base) 18%, transparent);
+  color: var(--ifm-font-color-base);
+}
+
+.button--secondary:hover {
+  background: color-mix(in srgb, var(--mesh-accent) 10%, transparent);
+  border-color: color-mix(in srgb, var(--mesh-accent) 30%, transparent);
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown,
+.markdown {
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+/* === Docs Content Horizontal Padding === */
+@media (min-width: 997px) {
+  .theme-doc-breadcrumbs,
+  .theme-doc-markdown {
+    padding-inline: 0.65rem;
+  }
+}
+
+.theme-doc-markdown p,
+.markdown p {
+  margin: 0 0 0.95rem;
+}
+
+.theme-doc-markdown h1,
+.markdown h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.9rem;
+}
+
+.theme-doc-markdown h2,
+.markdown h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  margin-top: 1.95rem;
+  margin-bottom: 0.68rem;
+}
+
+.theme-doc-markdown h3,
+.markdown h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.52rem);
+  line-height: 1.22;
+  letter-spacing: -0.008em;
+  margin-top: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.theme-doc-markdown li,
+.markdown li {
+  margin: 0.24rem 0;
+  line-height: 1.56;
+}
+
+.theme-doc-markdown a:not(.button),
+.markdown a:not(.button) {
+  text-decoration-thickness: 0.075em;
+  text-underline-offset: 0.14em;
+}
+
+.theme-doc-markdown code,
+.markdown code {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.92em;
+  border-radius: 0.35rem;
+  padding: 0.08rem 0.33rem;
+}
+
+@media (max-width: 996px) {
+  .theme-doc-markdown,
+  .markdown {
+    font-size: 1rem;
+  }
+
+  .theme-doc-markdown h1,
+  .markdown h1 {
+    font-size: clamp(1.9rem, 8vw, 2.5rem);
+  }
+
+  .theme-doc-markdown h2,
+  .markdown h2 {
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+  }
+}
+
+/* === Media === */
+.introImage {
+  border-radius: 18px;
+  margin: 1rem 0 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.docImage {
+  border-radius: 14px;
+  margin: 0.75rem 0 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .introImage {
+  border: 1px solid rgba(255, 255, 255, 0.028);
+  box-shadow: 0 6px 13px rgba(0, 0, 0, 0.29), 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+[data-theme='dark'] .docImage {
+  border: 1px solid rgba(255, 255, 255, 0.024);
+  box-shadow: 0 5px 11px rgba(0, 0, 0, 0.26), 0 0 0 1px rgba(255, 255, 255, 0.018);
+}
+
+/* === Header (Meshtastic-inspired) === */
+.navbar {
+  min-height: var(--mesh-navbar-height);
+  padding: 0;
+  /* Visual styling is handled by the MeshWorks Minimal Tech wrapper (.mwNavbar). */
+  border-bottom: none;
+  box-shadow: none;
+  background: transparent;
+  top: 0;
+}
+
+.navbar__inner {
+  max-width: 80rem;
+  min-height: var(--mesh-navbar-height);
+  margin-inline: auto;
+  padding: 0 1.25rem;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+.navbar__items {
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.navbar__item {
+  white-space: nowrap;
+}
+
+.navbar__logo {
+  margin-right: 1rem;
+}
+
+.navbar__logo img {
+  height: 2.25rem;
+  width: auto;
+}
+
+.navbar__title {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.navbar__link {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  transition: color 0.12s ease, opacity 0.12s ease, background 0.12s ease;
+  color: var(--ifm-font-color-secondary);
+}
+
+.navbar__link:hover {
+  text-decoration: none;
+  opacity: 1;
+  color: var(--ifm-font-color-base);
+}
+
+.navbar .navbar__title,
+.navbar .navbar__item,
+.navbar .clean-btn,
+.navbar [class*='colorModeToggle'] {
+  color: var(--ifm-font-color-base);
+}
+
+.navbar .navbar__link--active,
+.navbar .navbar__link--active:hover {
+  color: var(--mesh-accent);
+  box-shadow: none;
+}
+
+/* === Generic Cards === */
+.card {
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+  border: 1px solid color-mix(in srgb, var(--ifm-font-color-base) 12%, transparent);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: transform 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--mesh-accent) 24%, transparent);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* === Docs Left Sidebar (Meshtastic-inspired) === */
+.theme-doc-sidebar-menu .menu__link {
+  font-weight: 350;
+}
+
+.theme-doc-sidebar-menu .menu__link--active,
+.theme-doc-sidebar-menu .menu__link:hover {
+  font-weight: 350;
+}
+
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__link--active,
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__link:hover {
+  font-weight: 350;
+}
+
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__link:hover,
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__link--active {
+  background: color-mix(in srgb, var(--mesh-accent) 72%, #ffffff 28%);
+}
+
+/* Docusaurus sets `background: none !important` for links inside collapsible categories.
+   Override it in light theme so category headers highlight the same way as regular links. */
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link:hover,
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link--active {
+  background: color-mix(in srgb, var(--mesh-accent) 72%, #ffffff 28%) !important;
+}
+
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__list-item-collapsible:hover,
+html[data-theme='light'] .theme-doc-sidebar-menu .menu__list-item-collapsible--active {
+  background: color-mix(in srgb, var(--mesh-accent) 72%, #ffffff 28%);
+  border-radius: 0.55rem;
+}
+
+/* Sidebar icons for top-level sections (autogenerated sidebar). */
+.theme-doc-sidebar-item-link-level-1 > .menu__link,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.theme-doc-sidebar-item-link-level-1 > .menu__link::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link::before {
+  content: 'folder';
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.15rem;
+  line-height: 1;
+  flex: 0 0 auto;
+  width: 1.15rem;
+  text-align: center;
+  color: color-mix(in srgb, var(--ifm-font-color-base) 45%, transparent);
+  font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+}
+
+.theme-doc-sidebar-item-link-level-1 > .menu__link:hover::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link:hover::before,
+.theme-doc-sidebar-item-link-level-1 > .menu__link.menu__link--active::before,
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > .menu__link.menu__link--active::before {
+  color: var(--mesh-accent);
+}
+
+html[data-theme='light'] .theme-doc-sidebar-item-link-level-1 > .menu__link:hover::before,
+html[data-theme='light'] .theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link:hover::before,
+html[data-theme='light'] .theme-doc-sidebar-item-link-level-1 > .menu__link.menu__link--active::before,
+html[data-theme='light'] .theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > .menu__link.menu__link--active::before {
+  color: rgba(11, 18, 26, 0.72);
+}
+
+/* Icon mapping by section route (level-1 only) */
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/introduction']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/introduction']::before {
+  content: 'rocket_launch';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/introduction']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/introduction']::before {
+  content: 'menu_book';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/devices']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/devices']::before {
+  content: 'devices';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/catalog-devices']::before,
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > a.menu__link[href^='/catalog-devices']::before {
+  content: 'inventory_2';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/node-setup']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/node-setup']::before {
+  content: 'tune';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/antennas']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/antennas']::before {
+  content: 'settings_input_antenna';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/troubleshooting']::before,
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible
+  > a.menu__link[href^='/troubleshooting']::before {
+  content: 'build';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/community']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/community']::before {
+  content: 'forum';
+}
+
+.theme-doc-sidebar-item-link-level-1 > a.menu__link[href^='/regulations']::before,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link[href^='/regulations']::before {
+  content: 'gavel';
+}
+
+/* === Docs Right Sidebar (Table of Contents) === */
+html[data-theme='light'] .table-of-contents__link:hover,
+html[data-theme='light'] .table-of-contents__link--active {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html[data-theme='light'] .table-of-contents__link {
+  position: relative;
+  z-index: 0;
+}
+
+html[data-theme='light'] .table-of-contents__link::before {
+  content: '';
+  position: absolute;
+  inset: -0.22rem -0.45rem;
+  border-radius: 0.55rem;
+  background: transparent;
+  box-shadow: 0 14px 32px rgba(18, 24, 35, 0.14);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.12s ease, background 0.12s ease;
+}
+
+html[data-theme='light'] .table-of-contents__link:hover::before,
+html[data-theme='light'] .table-of-contents__link--active::before {
+  background: rgba(11, 18, 26, 0.9);
+  opacity: 1;
+}
+
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    border-right: 1px solid rgba(18, 24, 35, 0.12);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(245, 247, 251, 0.8) 100%);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-container {
+    border-right-color: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(17, 19, 24, 0.8) 0%, rgba(15, 18, 22, 0.76) 100%);
+  }
+
+  .theme-doc-sidebar-menu {
+    padding: 0.72rem 0.65rem 1rem;
+  }
+
+  .theme-doc-sidebar-item-category-level-1 {
+    margin-bottom: 0.1rem;
+  }
+
+  .theme-doc-sidebar-menu .menu__link {
+    border-radius: 0.55rem;
+    padding: 0.43rem 0.62rem;
+    font-size: 0.98rem;
+    line-height: 1.25;
+    transition: background-color 0.12s ease, color 0.12s ease;
+  }
+
+  [data-theme='light'] .theme-doc-sidebar-menu .menu__link {
+    color: #3c4655;
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-menu .menu__link {
+    color: rgba(243, 246, 250, 0.78);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-menu .menu__link:hover {
+    color: var(--mesh-accent);
+    background: color-mix(in srgb, var(--mesh-accent) 10%, transparent);
+  }
+
+  [data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active {
+    color: var(--mesh-accent);
+    background: color-mix(in srgb, var(--mesh-accent) 14%, transparent);
+  }
+}
+
+/* === Footer === */
+.footer,
+.footer.footer--dark {
+  border-top: 1px solid var(--mw-line);
+  text-align: center;
+  background: var(--mw-panel);
+  color: var(--mw-text);
+}
+
+.footer__links-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer__links-row a {
+  color: var(--mw-muted);
+  font-weight: 500;
+}
+
+.footer__links-row a:hover {
+  color: var(--mw-accent);
+}
+
+html[data-theme='light'] .footer__links-row a:hover {
+  color: #0b121a;
+  box-shadow: inset 0 -1.05em 0 color-mix(in srgb, var(--mw-accent) 52%, transparent);
+  border-radius: 0.6em;
+}
+
+.footer__trademark {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.footer__trademark,
+.footer__copyright {
+  color: var(--mw-muted);
+}
+
+/* === Admonitions === */
+.alert {
+  --mesh-alert-bg-current: var(--mesh-alert-neutral-bg);
+  --mesh-alert-border-current: var(--mesh-alert-neutral-border);
+  --mesh-alert-icon-current: var(--mesh-alert-neutral-icon);
+  display: flex;
+  column-gap: 0.55rem;
+  align-items: flex-start;
+  border-radius: var(--mesh-alert-radius);
+  padding: 0.68rem 0.85rem;
+  margin: 0.65rem 0;
+  line-height: 1.4;
+  background: var(--mesh-alert-bg-current);
+  border: 1px solid var(--mesh-alert-border-current);
+  border-left: 3px solid color-mix(in srgb, var(--mesh-alert-icon-current) 50%, transparent);
+  color: var(--mesh-alert-text-color);
+  box-shadow: none;
+}
+
+.alert::before {
+  content: '';
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--mesh-alert-icon-current);
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-style: normal;
+  margin-top: 0.32rem;
+}
+
+.alert [class*='admonitionContent'] {
+  flex: 1;
+}
+
+.alert__icon,
+.alert__heading,
+.theme-admonition__icon,
+.theme-admonition__heading,
+[class^='admonitionIcon'],
+[class*='admonitionIcon'],
+[class^='admonitionHeading'],
+[class*='admonitionHeading'] {
+  display: none !important;
+}
+
+.alert--tip {
+  --mesh-alert-bg-current: var(--mesh-alert-tip-bg);
+  --mesh-alert-border-current: var(--mesh-alert-tip-border);
+  --mesh-alert-icon-current: var(--mesh-alert-tip-icon);
+}
+
+.alert--info {
+  --mesh-alert-bg-current: var(--mesh-alert-info-bg);
+  --mesh-alert-border-current: var(--mesh-alert-info-border);
+  --mesh-alert-icon-current: var(--mesh-alert-info-icon);
+}
+
+.alert--success {
+  --mesh-alert-bg-current: var(--mesh-alert-success-bg);
+  --mesh-alert-border-current: var(--mesh-alert-success-border);
+  --mesh-alert-icon-current: var(--mesh-alert-success-icon);
+}
+
+.alert--warning,
+.alert--danger {
+  --mesh-alert-bg-current: var(--mesh-alert-warning-bg);
+  --mesh-alert-border-current: var(--mesh-alert-warning-border);
+  --mesh-alert-icon-current: var(--mesh-alert-warning-icon);
+}
+
+.alert--note {
+  --mesh-alert-bg-current: var(--mesh-alert-note-bg);
+  --mesh-alert-border-current: var(--mesh-alert-note-border);
+  --mesh-alert-icon-current: var(--mesh-alert-note-icon);
+}
+
+.alert--favorite {
+  --mesh-alert-bg-current: var(--mesh-alert-favorite-bg);
+  --mesh-alert-border-current: var(--mesh-alert-favorite-border);
+  --mesh-alert-icon-current: var(--mesh-alert-favorite-icon);
+}
+
+.alert p {
+  margin: 0.15rem 0;
+}
+
+.alert p + p {
+  margin-top: 0.2rem;
+}
+
+.alert--tip::before {
+  content: 'lightbulb';
+}
+
+.alert--info::before {
+  content: 'info';
+}
+
+.alert--success::before {
+  content: 'task_alt';
+}
+
+.alert--warning::before,
+.alert--danger::before {
+  content: 'warning';
+}
+
+.alert--note::before {
+  content: 'description';
+}
+
+.alert--favorite::before {
+  content: 'grade';
+  color: #c17300;
+}
+
+[data-theme='dark'] .alert--favorite::before {
+  color: #ffd764;
+}
+
+/* === Search / Navbar Utilities === */
+.DocSearch-Button-Placeholder {
+  position: relative;
+  color: transparent;
+  font-weight: 500;
+}
+
+.DocSearch-Button-Placeholder::after {
+  content: 'Поиск';
+  position: absolute;
+  inset: 0;
+  color: var(--ifm-navbar-search-input-placeholder-color, currentColor);
+}
+
+.searchHintContainer_Pkmr,
+kbd.searchHint_iIMx {
+  display: none !important;
+}
+
+[class*='navbarSearchContainer'] .DocSearch-Button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 2.35rem;
+  padding: 0 2.4rem 0 0.85rem;
+  border-radius: 999px;
+  background: var(--ifm-navbar-search-input-background-color);
+  border: 1px solid color-mix(in srgb, var(--ifm-font-color-base) 16%, transparent);
+  box-shadow: none;
+  color: var(--ifm-navbar-search-input-color, var(--ifm-font-color-base));
+  transition: border-color 0.12s ease, background-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+[class*='navbarSearchContainer'] .DocSearch-Button:hover {
+  border-color: color-mix(in srgb, var(--mesh-accent) 28%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mesh-accent) 12%, transparent);
+}
+
+[class*='navbarSearchContainer'] .DocSearch-Button:focus-visible,
+[class*='navbarSearchContainer'] .DocSearch-Button:focus-within {
+  outline: none;
+  border-color: color-mix(in srgb, var(--mesh-accent) 55%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--mesh-accent) 16%, transparent);
+}
+
+[class*='navbarSearchContainer'] .DocSearch-Button-Keys {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 !important;
+}
+
+.DocSearch-Button-Keys :first-child {
+  font-size: 1.3em;
+}
+
+.DocSearch-Button-Keys :last-child {
+  font-size: 1em;
+}
+
+/* Minimal Tech search (local search input) */
+.mwNavbar .navbar__search {
+  display: flex;
+  min-width: 0;
+}
+
+.mwNavbar .navbar__search-input {
+  height: 38px;
+  width: 100%;
+  min-width: 0;
+  border-radius: 999px;
+  border: 1px solid var(--mw-line);
+  background: color-mix(in srgb, var(--mw-text) 6%, transparent);
+  color: var(--mw-text);
+  padding: 0 12px;
+  box-shadow: none;
+}
+
+.mwNavbar .navbar__search-input::placeholder {
+  color: var(--mw-muted);
+}
+
+.mwNavbar .navbar__search-input:focus,
+.mwNavbar .navbar__search-input:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--mw-accent) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mw-accent) 12%, transparent);
+}
+
+@media (min-width: 768px) {
+  .DocSearch-Button {
+    width: 10.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .DocSearch-Button {
+    width: 14rem;
+  }
+}
+
+@media (max-width: 996px) {
+  [data-theme='light'] .navbar,
+  [data-theme='dark'] .navbar,
+  /* Prevent fixed mobile sidebar from being constrained by filtered wrapper */
+  [data-theme='light'] .mwNavbar,
+  [data-theme='dark'] .mwNavbar {
+    /* Prevent fixed mobile sidebar from being constrained by filtered navbar */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Mobile: navbar needs to be less transparent for readability */
+  [data-theme='light'] .mwNavbar {
+    background: #ffffff;
+  }
+
+  [data-theme='dark'] .mwNavbar {
+    background: #0b0f14;
+  }
+
+  /* Mobile: prevent local-search dropdown from being clipped/cut off */
+  .navbar__search {
+    overflow: visible;
+  }
+
+  /* Mobile: keep search bar from being visually clipped (tight navbar width) */
+  [class*='searchBarContainer'] {
+    margin-left: 0 !important;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* The search-local plugin shrinks input to 2rem on very small screens.
+     With our pill styling/padding it looks like a clipped input, so keep it responsive instead. */
+  .mwNavbar .navbar__search-input {
+    width: 100% !important;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* The local-search plugin uses a dropdown attached to the navbar search input.
+     On mobile it can get clipped by navbar/sidebar containers; fix by pinning it to viewport. */
+  [class*='searchBarContainer'] [class*='dropdownMenu'],
+  [class*='searchBarContainer'] .aa-Panel,
+  .navbar__search .aa-Panel {
+    position: fixed !important;
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    top: calc(var(--ifm-navbar-height, 3.75rem) + 12px + env(safe-area-inset-top));
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100vh - (var(--ifm-navbar-height, 3.75rem) + 24px));
+    max-height: calc(100dvh - (var(--ifm-navbar-height, 3.75rem) + 24px));
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    z-index: 10000;
+  }
+
+  [class*='navbarSearchContainer'] .DocSearch-Button-Keys {
+    display: none;
+  }
+
+  [class*='navbarSearchContainer'] {
+    position: static;
+    transform: none;
+    width: auto;
+  }
+}
+
+/* === Social Navbar Icons === */
+.navbar-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
+  font-weight: 500;
+}
+
+[data-theme='light'] .navbar-icon {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.navbar-icon::before {
+  font-family: 'Material Symbols Rounded';
+  font-size: 1.2rem;
+  line-height: 1;
+  color: currentColor;
+}
+
+.navbar-icon svg,
+.navbar-icon [class*='iconExternalLink'] {
+  display: none !important;
+}
+
+.navbar-icon--telegram::before {
+  content: 'send';
+}
+
+.navbar-icon--youtube::before {
+  content: 'smart_display';
+}
+
+/* =========================
+   MeshWorks Minimal Tech Navbar
+   ========================= */
+
+:root{
+  /* Use the same accent token as links/sidebar (better contrast in light theme) */
+  --mw-accent: var(--mesh-accent, #c6fd50);
+  --mw-text: rgba(255,255,255,.92);
+  --mw-muted: rgba(255,255,255,.62);
+  --mw-line: rgba(255,255,255,.08);
+  --mw-hover: rgba(255,255,255,.04);
+  --mw-panel: rgba(11,15,20,.88);
+}
+
+html[data-theme='light']{
+  --mw-text: rgba(15,18,22,.92);
+  --mw-muted: rgba(15,18,22,.62);
+  --mw-line: rgba(15,18,22,.10);
+  --mw-hover: rgba(15,18,22,.05);
+  --mw-panel: rgba(255,255,255,.78);
+}
+
+.mwNavbar{
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--mw-panel);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.mwNavbarInner{
+  border-bottom: 1px solid var(--mw-line);
+}
+
+/* Mobile sidebar (burger) — add "glass" and keep it readable */
+.mwNavbar .navbar-sidebar{
+  background: color-mix(in srgb, var(--ifm-background-surface-color) 94%, transparent);
+  border-right: 1px solid var(--mw-line);
+  backdrop-filter: blur(14px) saturate(1.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+}
+
+.mwNavbar .navbar-sidebar__backdrop{
+  background: color-mix(in srgb, #000 48%, transparent);
+}
+
+html[data-theme='light'] .mwNavbar .navbar-sidebar__backdrop{
+  background: color-mix(in srgb, #0b121a 22%, transparent);
+}
+
+html[data-theme='light'] .mwNavbar .navbar-sidebar .menu__link--active{
+  color: #0b121a;
+  background: color-mix(in srgb, var(--mw-accent) 58%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mw-accent) 62%, rgba(11, 18, 26, 0.12));
+}
+
+.mwBrand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 210px;
+}
+
+.mwBrandLink{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none !important;
+  color: var(--mw-text) !important;
+}
+
+.mwLogo{
+  width: 56px;
+  height: 34px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.mwLogoDot{
+  fill: var(--mw-accent);
+}
+
+.mwBrandText{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.mwBrandName{
+  font-weight: 650;
+  letter-spacing: .01em;
+  font-size: 14px;
+}
+
+.mwBrandSub{
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--mw-muted);
+}
+
+.navbar__link{
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 10px;
+  font-size: 14px;
+  transition: background .14s ease, color .14s ease;
+  box-shadow: none !important; /* remove any theme underline */
+}
+
+.mwNavbar .navbar__link{
+  height: 40px;
+  padding-inline: 14px;
+  border-radius: 999px;
+}
+
+.navbar__link:hover{
+  background: var(--mw-hover);
+  color: var(--mw-text) !important;
+  box-shadow: none !important;
+}
+
+.navbar__link--active{
+  color: var(--mw-accent) !important;
+}
+
+.mwNavbar .navbar__items--left .navbar__item.navbar__link{
+  margin-inline: 8px;
+}
+
+html[data-theme='light'] .mwNavbar .navbar__link--active{
+  color: #0b121a !important;
+  background: color-mix(in srgb, var(--mw-accent) 14%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--mw-accent) 92%, transparent) !important;
+}
+
+html[data-theme='light'] .mwNavbar .navbar__link--active:hover{
+  color: #0b121a !important;
+  background: color-mix(in srgb, var(--mw-accent) 18%, transparent) !important;
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--mw-accent) 92%, transparent) !important;
+}
+
+html[data-theme='light'] .mwLogoDot{
+  filter: drop-shadow(0 0 0.75px rgba(11, 18, 26, 0.55));
+}
+
+/* Override any earlier theme underline/indicator rules */
+html[data-theme='dark'] .mwNavbar .navbar__link--active{
+  box-shadow: none !important;
+}
+
+.mwNavbar .navbar__link--active::after{
+  content: none !important;
+  display: none !important;
+}
+
+.mwIconBtn{
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid var(--mw-line);
+  background: color-mix(in srgb, var(--mw-text) 6%, transparent);
+  transition: background .12s ease, border-color .12s ease;
+}
+
+.mwIconBtn:hover{
+  background: color-mix(in srgb, var(--mw-text) 9%, transparent);
+  border-color: color-mix(in srgb, var(--mw-text) 14%, transparent);
+}
+
+/* Docusaurus icon buttons (theme toggle, mobile burger, etc.) */
+.mwNavbar .navbar__items--right .clean-btn:not(.DocSearch-Button),
+.mwNavbar .navbar__toggle.clean-btn{
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid var(--mw-line);
+  background: color-mix(in srgb, var(--mw-text) 6%, transparent);
+  transition: background .12s ease, border-color .12s ease, transform .12s ease;
+}
+
+.mwNavbar .navbar__items--right .clean-btn:not(.DocSearch-Button){
+  display: inline-flex;
+}
+
+.mwNavbar .navbar__items--right .clean-btn:not(.DocSearch-Button):hover,
+.mwNavbar .navbar__toggle.clean-btn:hover{
+  background: color-mix(in srgb, var(--mw-text) 9%, transparent);
+  border-color: color-mix(in srgb, var(--mw-text) 14%, transparent);
+  transform: translateY(-1px);
+}
+
+.mwSearchWrap{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--mw-line);
+  background: rgba(255,255,255,.03);
+  transition: border-color .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.mwSearchWrap:focus-within{
+  border-color: color-mix(in srgb, var(--mw-accent) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mw-accent) 12%, transparent);
+  background: rgba(255,255,255,.04);
+}
+
+@media (max-width: 996px){
+  .mwNavbar .navbar__inner{
+    padding-inline: 0.75rem;
+    gap: 0.35rem;
+  }
+
+  .mwNavbar .navbar__toggle.clean-btn{
+    display: inline-flex;
+  }
+
+  /* On mobile, primary links should live in the sidebar (burger), not in the top bar */
+  .mwNavbar .theme-layout-navbar-left .navbar__item.navbar__link{
+    display: none;
+  }
+
+  .mwBrand{ min-width: 0; gap: 10px; }
+  .mwLogo{ width: 48px; }
+  .mwBrandSub{ display: none; }
+
+  /* Allow search to shrink without breaking the layout */
+  [class*='navbarSearchContainer']{
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 997px){
+  .mwNavbar .navbar__toggle.clean-btn{
+    display: none !important;
+  }
+}
+
+@media (max-width: 420px){
+  /* On very small screens, keep only the logo */
+  .mwBrandText{ display: none; }
+}
+
+/* =========================
+   MeshWorks Minimal Tech Breadcrumbs
+   ========================= */
+
+.theme-doc-breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--mw-muted, var(--ifm-font-color-secondary));
+}
+
+.theme-doc-breadcrumbs {
+  --ifm-breadcrumb-separator-filter: invert(1);
+}
+
+.theme-doc-breadcrumbs .breadcrumbs__item:not(:last-child)::after {
+  opacity: 0.72;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumbs__link,
+.breadcrumbs__item--active > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 12px;
+  text-decoration: none !important;
+  color: inherit;
+  line-height: 1.15;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.breadcrumbs__link svg,
+.breadcrumbs__link img {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  transform: translateY(1px);
+}
+
+.breadcrumbs__link svg,
+.breadcrumbs__item--active > span svg,
+.breadcrumbs__separator svg {
+  color: var(--mw-accent, var(--ifm-color-primary));
+}
+
+html[data-theme='light'] .breadcrumbs__item:first-child .breadcrumbs__link svg,
+html[data-theme='light'] .breadcrumbs__separator,
+html[data-theme='light'] .breadcrumbs__separator svg {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+html[data-theme='dark'] .breadcrumbs__item:first-child .breadcrumbs__link svg,
+html[data-theme='dark'] .breadcrumbs__separator,
+html[data-theme='dark'] .breadcrumbs__separator svg {
+  color: var(--ifm-font-color-base);
+}
+
+.breadcrumbs__link:hover {
+  background: var(--mw-hover, rgba(127, 127, 127, 0.08));
+  color: var(--mw-text, var(--ifm-font-color-base));
+}
+
+.breadcrumbs__item--active > span {
+  color: var(--mw-text, var(--ifm-font-color-base));
+  font-weight: 500;
+}
+
+html[data-theme='light'] .breadcrumbs__item--active > span {
+  font-weight: 450;
+}
+
+.breadcrumbs__separator {
+  opacity: 0.55;
+  margin: 0 0.1rem;
+}
+
+.breadcrumbs__item--active > .breadcrumbs__link {
+  color: var(--mw-accent, var(--ifm-color-primary));
+}
+
+html[data-theme='light'] .breadcrumbs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.28rem 0.35rem;
+  border-radius: 14px;
+  background: rgba(11, 18, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 22px rgba(18, 24, 35, 0.14);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html[data-theme='light'] .breadcrumbs__link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+html[data-theme='light'] .breadcrumbs__item--active > span {
+  color: rgba(255, 255, 255, 0.92);
+}

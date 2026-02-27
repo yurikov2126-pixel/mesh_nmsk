@@ -1,0 +1,13 @@
+# Node / Docusaurus artifacts
+node_modules/
+build/
+.docusaurus/
+.tmp/
+screenshots/
+.DS_Store
+.env
+.env.*
+*.log
+coverage/
+.vitest/
+*.tsbuildinfo

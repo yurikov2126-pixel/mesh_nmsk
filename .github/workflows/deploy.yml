@@ -1,0 +1,87 @@
+name: Deploy wiki
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Git ref to deploy (defaults to current main)
+        required: false
+
+env:
+  REMOTE_APP_DIR: /opt/compose/external/wiki/app
+  REMOTE_WWW_DIR: /opt/compose/edge/nginx/www/wiki.meshworks
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      TARGET_REF: ${{ github.event_name == 'workflow_dispatch' && inputs.ref || github.sha }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_REF }}
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Build (lint + bundle)
+        run: npm run check
+
+      - name: Prepare SSH
+        env:
+          SSH_KEY: ${{ secrets.WIKI_SSH_KEY }}
+          SSH_HOST: ${{ secrets.WIKI_SSH_HOST }}
+          SSH_USER: ${{ secrets.WIKI_SSH_USER }}
+          SSH_PORT: ${{ secrets.WIKI_SSH_PORT || '22' }}
+        run: |
+          if [ -z "$SSH_KEY" ] || [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ]; then
+            echo "Missing SSH secrets (WIKI_SSH_KEY/HOST/USER)" >&2
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          {
+            echo "Host wiki-prod"
+            echo "  HostName $SSH_HOST"
+            echo "  User $SSH_USER"
+            echo "  Port $SSH_PORT"
+            echo "  IdentityFile ~/.ssh/id_rsa"
+            echo "  StrictHostKeyChecking yes"
+          } >> ~/.ssh/config
+
+      - name: Sync sources to server
+        run: |
+          rsync -az --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.docusaurus' \
+            --exclude 'node_modules' \
+            ./ wiki-prod:"$REMOTE_APP_DIR"/
+
+      - name: Publish wiki build
+        run: |
+          ssh wiki-prod "sudo mkdir -p \"$REMOTE_WWW_DIR\" && sudo chown -R \$(whoami):\$(whoami) \"$REMOTE_WWW_DIR\""
+          rsync -az --delete ./build/ wiki-prod:"$REMOTE_WWW_DIR"/
+          ssh wiki-prod "sudo chown -R wiki-ci:wiki-ci \"$REMOTE_WWW_DIR\""
+
+      - name: Reload ingress nginx
+        run: ssh wiki-prod "sudo docker exec nginx-reverse-proxy nginx -s reload"
+
+      - name: Smoke test
+        run: |
+          curl -I --retry 5 --retry-delay 5 "https://wiki.meshworks.ru/?cacheBust=$(date +%s)"
