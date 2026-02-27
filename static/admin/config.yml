@@ -1,12 +1,12 @@
 backend:
   name: github
-  repo: MeshWorksRussia/wiki.meshworks.ru
+  repo: MeshWorksRussia/wiki.meshtastik-nmsk.ru
   branch: main
-  base_url: https://auth.meshworks.ru
+  base_url: https://auth.wiki.meshtastik-nmsk.ru
   auth_endpoint: decap/auth
 
-site_url: https://wiki.meshworks.ru
-display_url: https://wiki.meshworks.ru
+site_url: https://wiki.meshtastik-nmsk.ru
+display_url: https://wiki.meshtastik-nmsk.ru
 
 publish_mode: editorial_workflow
 
