@@ -1,11 +1,11 @@
-# MeshWorks Wiki
+# Mesh_NMSK Wiki
 
-MeshWorks Wiki — публичная база знаний по Meshtastic и инфраструктуре MeshWorks.  
-Репозиторий хранит весь исходный код Docusaurus‑сайта, который развёрнут на https://wiki.meshworks.ru
+Mesh_NMSK Wiki — публичная база знаний по Meshtastic и инфраструктуре MeshWorks.  
+Репозиторий хранит весь исходный код Docusaurus‑сайта, который развёрнут на https://wiki.meshtastik-nmsk.ru/
 
 
 ## Как контрибьютить
-Полный процесс описан в [CONTRIBUTING](CONTRIBUTING.md) и на https://wiki.meshworks.ru/wiki/how-to-edit.
+Полный процесс описан в [CONTRIBUTING](CONTRIBUTING.md) и на https://wiki.meshtastik-nmsk.ru/wiki/how-to-edit.
 
 ## Быстрый старт
 Требования: Node.js ≥ 20, npm 10.
