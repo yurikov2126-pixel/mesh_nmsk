@@ -88,7 +88,7 @@ export function HomepageDownloads() {
     {
       title: "Карта сети",
       description: "Публичная карта узлов и покрытий MeshWorks.",
-      href: "https://malla.meshworks.ru/",
+      href: "https://malla.meshnmsk.crazedns.ru/",
       icon: "mapPin",
     },
     {

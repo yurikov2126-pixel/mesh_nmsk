@@ -50,7 +50,7 @@ export function HomePageContent() {
                     styles.ctaSecondary,
                     styles.ctaButton,
                   )}
-                  href="https://t.me/meshwrks"
+                  href="https://t.me/meshtastic_nmsk"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

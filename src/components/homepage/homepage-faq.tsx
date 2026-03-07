@@ -12,7 +12,7 @@ const items: FaqItem[] = [
     question: "Что такое MeshWorks?",
     answer: (
       <>
-        MeshWorks — сообщество энтузиастов mesh‑сетей. Мы создаём инструменты для автономной связи, собираем базу знаний и
+        Mesh-NMSK — сообщество энтузиастов mesh‑сетей. Мы создаём инструменты для автономной связи, собираем базу знаний и
         помогаем запускать сети в реальных сценариях.
       </>
     ),
@@ -107,26 +107,6 @@ const items: FaqItem[] = [
     ),
   },
   {
-    question: "Как поддержать MeshWorks?",
-    answer: (
-      <>
-        Если проект полезен — поддержите нас на{" "}
-        <a href="https://boosty.to/meshworks" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
-          Boosty
-        </a>
-        . Это помогает развивать инструменты и контент.
-      </>
-    ),
-  },
-  {
-    question: "Цифры сообщества",
-    answer: (
-      <>
-        YouTube — 30 000, Telegram — 8 000, Boosty — 1, всего — 38 001.
-      </>
-    ),
-  },
-  {
     question: "Где смотреть эфиры и обзоры?",
     answer: (
       <>
@@ -150,7 +130,7 @@ export function HomepageFaq() {
     <section aria-label="FAQ">
       <div className={styles.sectionHeader}>
         <h2>Сообщество и ответы</h2>
-        <p>Короткие ответы и ссылки на инструменты MeshWorks и разделы вики.</p>
+        <p>Короткие ответы и ссылки на инструменты Mesh-NMSK и разделы вики.</p>
       </div>
 
       <div className={styles.faqList}>
@@ -168,8 +148,8 @@ export function HomepageFaq() {
       </div>
 
       <div className={styles.faqCta}>
-        <a className="button button--primary" href="https://t.me/meshwrks" target="_blank" rel="noopener noreferrer">
-          Перейти в Telegram MeshWorks
+        <a className="button button--primary" href="https://t.me/meshtastic_nmsk" target="_blank" rel="noopener noreferrer">
+          Перейти в Telegram Mesh-NMSK
         </a>
       </div>
     </section>
