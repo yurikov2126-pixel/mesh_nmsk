@@ -76,18 +76,18 @@ export function HomepageDownloads() {
     {
       title: "Прошивальщик",
       description: "Прошивка Meshtastic-устройств через браузер: быстро и удобно.",
-      href: "https://flasher.meshworks.ru/",
+      href: "https://flasher.Mesh_NMSK.ru/",
       icon: "download",
     },
     {
       title: "Веб‑клиент",
       description: "Клиент для управления нодами Meshtastic прямо в браузере.",
-      href: "https://client.meshworks.ru/",
+      href: "https://client.Mesh_NMSK.ru/",
       icon: "phone",
     },
     {
       title: "Карта сети",
-      description: "Публичная карта узлов и покрытий MeshWorks.",
+      description: "Публичная карта узлов и покрытий Mesh_NMSK.",
       href: "https://malla.meshnmsk.crazedns.ru/",
       icon: "mapPin",
     },
@@ -110,7 +110,7 @@ export function HomepageDownloads() {
     <section aria-label="Download clients">
       <div className={styles.sectionHeader}>
         <h2>Инструменты</h2>
-        <p>Сервисы и площадки MeshWorks: прошивка, карта сети, документация и общение.</p>
+        <p>Сервисы и площадки Mesh_NMSK: прошивка, карта сети, документация и общение.</p>
       </div>
 
       <div className={styles.grid3}>

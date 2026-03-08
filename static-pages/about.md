@@ -1,9 +1,9 @@
 ---
 title: О нас
-sidebar_label: ℹ️ О MeshWorks
+sidebar_label: ℹ️ О Mesh_NMSK
 sidebar_position: 98
 slug: /about
-description: "Информация о MeshWorks, целях проекта и способах связаться с командой авторов wiki."
+description: "Информация о Mesh_NMSK, целях проекта и способах связаться с командой авторов wiki."
 ---
 
 # Mesh-NMSK

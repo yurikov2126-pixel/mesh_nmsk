@@ -165,7 +165,7 @@ html[data-theme='light'] .button--primary {
 .navbar {
   min-height: var(--mesh-navbar-height);
   padding: 0;
-  /* Visual styling is handled by the MeshWorks Minimal Tech wrapper (.mwNavbar). */
+  /* Visual styling is handled by the Mesh_NMSK Minimal Tech wrapper (.mwNavbar). */
   border-bottom: none;
   box-shadow: none;
   background: transparent;
@@ -820,7 +820,7 @@ kbd.searchHint_iIMx {
 }
 
 /* =========================
-   MeshWorks Minimal Tech Navbar
+   Mesh_NMSK Minimal Tech Navbar
    ========================= */
 
 :root{
@@ -1072,7 +1072,7 @@ html[data-theme='dark'] .mwNavbar .navbar__link--active{
 }
 
 /* =========================
-   MeshWorks Minimal Tech Breadcrumbs
+   Mesh_NMSK Minimal Tech Breadcrumbs
    ========================= */
 
 .theme-doc-breadcrumbs {

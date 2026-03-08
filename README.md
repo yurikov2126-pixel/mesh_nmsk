@@ -1,6 +1,6 @@
-# MeshWorks Wiki
+# Mesh_NMSK Wiki
 
-Mesh-NMSK Wiki — публичная база знаний по Meshtastic и инфраструктуре MeshWorks.  
+Mesh-NMSK Wiki — публичная база знаний по Meshtastic и инфраструктуре Mesh_NMSK.  
 Репозиторий хранит весь исходный код Docusaurus‑сайта, который развёрнут на https://wiki.meshtastik-nmsk.ru/
 
 

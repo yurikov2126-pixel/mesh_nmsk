@@ -11,7 +11,7 @@ on:
 
 env:
   REMOTE_APP_DIR: /opt/compose/external/wiki/app
-  REMOTE_WWW_DIR: /opt/compose/edge/nginx/www/wiki.meshworks
+  REMOTE_WWW_DIR: /opt/compose/edge/nginx/www/wiki.Mesh_NMSK
 
 permissions:
   contents: read
@@ -84,4 +84,4 @@ jobs:
 
       - name: Smoke test
         run: |
-          curl -I --retry 5 --retry-delay 5 "https://wiki.meshworks.ru/?cacheBust=$(date +%s)"
+          curl -I --retry 5 --retry-delay 5 "https://wiki.Mesh_NMSK.ru/?cacheBust=$(date +%s)"

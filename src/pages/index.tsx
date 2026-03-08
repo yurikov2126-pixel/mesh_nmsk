@@ -4,10 +4,10 @@ import Layout from "@theme/Layout";
 import React from "react";
 
 export default function Home() {
-  const title = "Связь без интернета — MeshWorks Wiki";
+  const title = "Связь без интернета — Mesh_NMSK Wiki";
   const description =
-    "MeshWorks Wiki — база знаний о mesh-связи и сетях без интернета: технологии, инструменты, карта сети, устройства и инструкции.";
-  const url = "https://wiki.meshworks.ru/";
+    "Mesh_NMSK Wiki — база знаний о mesh-связи и сетях без интернета: технологии, инструменты, карта сети, устройства и инструкции.";
+  const url = "https://wiki.Mesh_NMSK.ru/";
   const image = "/img/social/wiki-share-1200x630-v2.png";
 
   return (
@@ -17,7 +17,7 @@ export default function Home() {
     >
       <Head>
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="MeshWorks Wiki" />
+        <meta property="og:site_name" content="Mesh_NMSK Wiki" />
         <meta property="og:locale" content="ru_RU" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />

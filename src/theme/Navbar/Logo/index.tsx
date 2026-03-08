@@ -13,7 +13,7 @@ export default function Logo() {
       <Link className="mwBrandLink navbar__brand" to={home} aria-label={siteConfig.title}>
         <ThemedImage
           className="mwLogo"
-          alt="MeshWorks"
+          alt="Mesh_NMSK"
           sources={{
             light: useBaseUrl("/img/mw-logo-dark.png"),
             dark: useBaseUrl("/img/mw-logo-light.png"),

@@ -9,7 +9,7 @@ type FaqItem = {
 
 const items: FaqItem[] = [
   {
-    question: "Что такое MeshWorks?",
+    question: "Что такое Mesh_NMSK?",
     answer: (
       <>
         Mesh-NMSK — сообщество энтузиастов mesh‑сетей. Мы создаём инструменты для автономной связи, собираем базу знаний и
@@ -23,7 +23,7 @@ const items: FaqItem[] = [
       <>
         Основной канал и чат —{" "}
         <a href="https://t.me/meshwrks" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
-          Telegram MeshWorks
+          Telegram Mesh_NMSK
         </a>
         . Там же — анонсы, помощь новичкам и обсуждения.
       </>
@@ -110,9 +110,9 @@ const items: FaqItem[] = [
     question: "Где смотреть эфиры и обзоры?",
     answer: (
       <>
-        Канал MeshWorks на{" "}
+        Канал Mesh_NMSK на{" "}
         <a
-          href="https://www.youtube.com/@meshworks_ru?sub_confirmation=1"
+          href="https://www.youtube.com/@Mesh_NMSK_ru?sub_confirmation=1"
           target="_blank"
           rel="noopener noreferrer"
           className={styles.inlineLink}

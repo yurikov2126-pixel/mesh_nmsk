@@ -29,7 +29,7 @@ breadcrumbs: ["База знаний Meshtastic", "Настройка ноды",
 
 :::favorite
 Если основной сайт не работает - используйте наше зеркало
- **[flasher.meshworks.ru](http://flasher.meshworks.ru)**
+ **[flasher.Mesh_NMSK.ru](http://flasher.Mesh_NMSK.ru)**
 :::
 
 3. Выберите модель своей платы из списка.
