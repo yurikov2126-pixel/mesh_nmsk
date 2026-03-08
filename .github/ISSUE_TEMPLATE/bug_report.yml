@@ -6,7 +6,7 @@ body:
     id: url
     attributes:
       label: URL страницы
-      placeholder: https://wiki.meshworks.ru/devices/ready-made/portable
+      placeholder: https://wiki.meshtastik-nmsk.ru//devices/ready-made/portable
     validations:
       required: true
   - type: textarea
