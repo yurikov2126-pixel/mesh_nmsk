@@ -137,7 +137,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           breadcrumbs: true,
-          editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/main/',
+          editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/deployment/',
           admonitions: {
             keywords: ['favorite'],
             extendDefaults: true,
