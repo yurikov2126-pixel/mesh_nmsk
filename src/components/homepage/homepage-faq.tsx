@@ -22,7 +22,7 @@ const items: FaqItem[] = [
     answer: (
       <>
         Основной канал и чат —{" "}
-        <a href="https://t.me/meshwrks" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
+        <a href="t.me/meshtastic_nmsk" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
           Telegram Mesh_NMSK
         </a>
         . Там же — анонсы, помощь новичкам и обсуждения.

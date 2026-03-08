@@ -84,4 +84,4 @@ jobs:
 
       - name: Smoke test
         run: |
-          curl -I --retry 5 --retry-delay 5 "https://wiki.Mesh_NMSK.ru/?cacheBust=$(date +%s)"
+          curl -I --retry 5 --retry-delay 5 "https://wiki.meshtastik-nmsk.ru//?cacheBust=$(date +%s)"

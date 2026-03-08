@@ -100,7 +100,7 @@ export function HomepageDownloads() {
     {
       title: "Форум",
       description: "Обсуждения и база знаний в формате сообщества.",
-      href: "https://t.me/meshwrks",
+      href: "t.me/meshtastic_nmsk",
       icon: "message",
       disabled: true,
     },

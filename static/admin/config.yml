@@ -5,8 +5,8 @@ backend:
   base_url: https://auth.Mesh_NMSK.ru
   auth_endpoint: decap/auth
 
-site_url: https://wiki.Mesh_NMSK.ru
-display_url: https://wiki.Mesh_NMSK.ru
+site_url: https://wiki.meshtastik-nmsk.ru/
+display_url: https://wiki.meshtastik-nmsk.ru/
 
 publish_mode: editorial_workflow
 
