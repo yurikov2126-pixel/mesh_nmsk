@@ -82,7 +82,7 @@ const config: Config = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Mesh-NMSK',
-        url: 'https://wiki.meshtastik-nmsk.ru/',
+        url: 'https://wiki.meshtastik-nmsk.ru',
         logo: 'https://wiki.meshtastik-nmsk.ru/img/logo-light.png',
         sameAs: [
           'https://t.me/meshtastic_nmsk',
@@ -109,7 +109,7 @@ const config: Config = {
   future: {
     v4: true,
   },
-  url: 'https://wiki.meshtastik-nmsk.ru/',
+  url: 'https://wiki.meshtastik-nmsk.ru',
   baseUrl: '/',
   trailingSlash: false,
   stylesheets: [
@@ -210,7 +210,7 @@ const config: Config = {
         routeBasePath: '/',
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/',
+        editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/deployment/',
       },
     ],
     ...(enablePwa
