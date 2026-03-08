@@ -313,7 +313,6 @@ const config: Config = {
             "<a href='https://www.youtube.com/@meshwrks' target='_blank' rel='noreferrer noopener'>YouTube</a>",
             "<a href='t.me/meshtastic_nmsk' target='_blank' rel='noreferrer noopener'>Telegram</a>",
             "<a href='https://malla.meshnmsk.crazedns.ru/' target='_blank' rel='noreferrer noopener'>Malla</a>",
-              "<a href='https://client.meshtastik-nmsk.ru/' target='_blank' rel='noreferrer noopener'>Web-клиент</a>",
             '</div>',
             "<div class='footer__trademark'>Meshtastic® is a registered trademark of Meshtastic LLC.</div>",
           ].join(''),
