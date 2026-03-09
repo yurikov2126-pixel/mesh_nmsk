@@ -1,12 +1,12 @@
 backend:
   name: github
-  repo: Mesh_NMSKRussia/wiki.Mesh_NMSK.ru
+  repo: yurikov2126-pixel/mesh_nmsk
   branch: main
-  base_url: https://auth.Mesh_NMSK.ru
+  base_url: https://auth.meshtastik-nmsk.ru
   auth_endpoint: decap/auth
 
-site_url: https://wiki.meshtastik-nmsk.ru/
-display_url: https://wiki.meshtastik-nmsk.ru/
+site_url: https://wiki.meshtastik-nmsk.ru
+display_url: https://wiki.meshtastik-nmsk.ru
 
 publish_mode: editorial_workflow
 

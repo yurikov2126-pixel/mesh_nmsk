@@ -63,7 +63,7 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'Mesh_NMSK Wiki',
+        name: 'Mesh-NMSK Wiki',
         url: 'https://wiki.meshtastik-nmsk.ru',
         inLanguage: 'ru',
         potentialAction: {
@@ -85,7 +85,7 @@ const config: Config = {
         url: 'https://wiki.meshtastik-nmsk.ru',
         logo: 'https://wiki.meshtastik-nmsk.ru/img/logo-light.png',
         sameAs: [
-          'https://t.me/meshtastic_nmsk',
+          'https://t.me/meshwrks',
           'https://www.youtube.com/@meshwrks',
         ],
       }),
@@ -117,7 +117,7 @@ const config: Config = {
     'https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@400;500;600&display=swap',
     'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap',
   ],
-  organizationName: 'Mesh_NMSK',
+  organizationName: 'Mesh-NMSK',
   projectName: 'wiki',
   onBrokenLinks: 'throw',
   markdown: {
@@ -243,16 +243,16 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'Mesh-NMSK — русскоязычная база знаний о Meshtastic, LoRa mesh-сетях и устройствах для автономной связи.',
+          'Mesh-NMSK Wiki — русскоязычная база знаний о Meshtastic, LoRa mesh-сетях и устройствах для автономной связи.',
       },
       {
         name: 'keywords',
         content:
-          'meshtastic, Mesh_NMSK, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
+          'meshtastic, Mesh-NMSK, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
       },
       {
         property: 'og:site_name',
-        content: 'Wiki_Mesh-NMSK',
+        content: 'Mesh-NMSK Wiki',
       },
       {
         property: 'og:locale',
@@ -269,7 +269,7 @@ const config: Config = {
     navbar: {
       title: 'Mesh-NMSK',
       logo: {
-        alt: 'Mesh_NMSK',
+        alt: 'Mesh-NMSK',
         src: 'img/logo-light.png',
         srcDark: 'img/logo-dark.png',
       },
@@ -311,7 +311,7 @@ const config: Config = {
           html: [
             "<div class='footer__links-row'>",
             "<a href='https://www.youtube.com/@meshwrks' target='_blank' rel='noreferrer noopener'>YouTube</a>",
-            "<a href='t.me/meshtastic_nmsk' target='_blank' rel='noreferrer noopener'>Telegram</a>",
+            "<a href='https://t.me/meshtastic_nmsk' target='_blank' rel='noreferrer noopener'>Telegram</a>",
             "<a href='https://malla.meshnmsk.crazedns.ru/' target='_blank' rel='noreferrer noopener'>Malla</a>",
             '</div>',
             "<div class='footer__trademark'>Meshtastic® is a registered trademark of Meshtastic LLC.</div>",

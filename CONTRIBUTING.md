@@ -119,4 +119,4 @@
 - Для багов (опечатка, 404, дубли) используйте шаблон **Баг**.
 
 ## 7. Лицензия
-- Репозиторий распространяется под [CC BY-SA 4.0](https://github.com/Mesh_NMSKRussia/wiki.Mesh_NMSK.ru/blob/main/LICENSE); русскоязычное описание — в [LICENSE.ru.md](https://github.com/Mesh_NMSKRussia/wiki.Mesh_NMSK.ru/blob/main/LICENSE.ru.md).
+- Репозиторий распространяется под [CC BY-SA 4.0](https://github.com/yurikov2126-pixel/mesh_nmsk/blob/deployment/LICENSE); русскоязычное описание — в [LICENSE.ru.md](https://github.com/yurikov2126-pixel/mesh_nmsk/blob/deployment/LICENSE.ru.md).

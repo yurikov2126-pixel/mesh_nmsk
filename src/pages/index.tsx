@@ -7,7 +7,7 @@ export default function Home() {
   const title = "Связь без интернета — Mesh_NMSK Wiki";
   const description =
     "Mesh_NMSK Wiki — база знаний о mesh-связи и сетях без интернета: технологии, инструменты, карта сети, устройства и инструкции.";
-  const url = "https://wiki.meshtastik-nmsk.ru//";
+  const url = "https://wiki.meshtastik-nmsk.ru/";
   const image = "/img/social/wiki-share-1200x630-v2.png";
 
   return (
