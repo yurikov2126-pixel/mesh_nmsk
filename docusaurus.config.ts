@@ -85,7 +85,7 @@ const config: Config = {
         url: 'https://wiki.meshtastik-nmsk.ru',
         logo: 'https://wiki.meshtastik-nmsk.ru/img/logo-light.png',
         sameAs: [
-          'https://t.me/meshwrks',
+          'https://t.me/meshtastic_nmsk',
           'https://www.youtube.com/@meshwrks',
         ],
       }),
