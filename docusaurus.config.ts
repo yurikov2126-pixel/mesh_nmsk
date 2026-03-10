@@ -63,7 +63,7 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'Mesh-NMSK Wiki',
+        name: 'Meshtastic Новомосковск',
         url: 'https://wiki.meshtastik-nmsk.ru',
         inLanguage: 'ru',
         potentialAction: {
@@ -81,7 +81,7 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Organization',
-        name: 'Mesh-NMSK',
+        name: 'Meshtastic Новомосковск',
         url: 'https://wiki.meshtastik-nmsk.ru',
         logo: 'https://wiki.meshtastik-nmsk.ru/img/logo-light.png',
         sameAs: [
@@ -248,7 +248,7 @@ const config: Config = {
       {
         name: 'keywords',
         content:
-          'meshtastic, Mesh-NMSK, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
+          'meshtastic, Mesh-NMSK, Meshtastic Новомосковск, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
       },
       {
         property: 'og:site_name',
