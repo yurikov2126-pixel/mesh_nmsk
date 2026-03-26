@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: MeshWorksRussia/wiki.meshworks.ru
-  branch: main
-  base_url: https://auth.meshworks.ru
+  repo: yurikov2126-pixel/mesh_nmsk
+  branch: deployment_v2
+  base_url: https://auth.meshtastik-nmsk.ru
   auth_endpoint: decap/auth
 
 site_url: https://wiki.meshtastik-nmsk.ru
