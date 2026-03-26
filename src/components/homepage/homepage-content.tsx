@@ -29,7 +29,7 @@ export function HomePageContent() {
 
               <div className={styles.heroLead}>
                 <p>
-                  Mesh_NMSK — сообщество энтузиастов mesh‑сетей. Создаём инструменты для автономной связи, развиваем
+                  MeshWorks — сообщество энтузиастов mesh‑сетей. Создаём инструменты для автономной связи, развиваем
                   покрытие, делимся знаниями.
                 </p>
               </div>
@@ -50,7 +50,7 @@ export function HomePageContent() {
                     styles.ctaSecondary,
                     styles.ctaButton,
                   )}
-                  href="https://t.me/meshtastic_nmsk"
+                  href="https://t.me/meshwrks"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

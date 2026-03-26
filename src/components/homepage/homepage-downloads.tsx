@@ -56,15 +56,15 @@ function DownloadCard({
 
   return (
     disabled ? (
-      <div className={`${styles.card} ${styles.cardDisabled}`} aria-disabled="true">
+      <div className={`${styles.card} ${styles.cardDisabled} ${styles.toolCard}`} aria-disabled="true">
         {content}
       </div>
     ) : isExternal ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={styles.card}>
+      <a href={href} target="_blank" rel="noopener noreferrer" className={`${styles.card} ${styles.toolCard}`}>
         {content}
       </a>
     ) : (
-      <Link to={href} className={styles.card}>
+      <Link to={href} className={`${styles.card} ${styles.toolCard}`}>
         {content}
       </Link>
     )
@@ -76,7 +76,7 @@ export function HomepageDownloads() {
     {
       title: "Прошивальщик",
       description: "Прошивка Meshtastic-устройств через браузер: быстро и удобно.",
-      href: "https://flasher.meshworks.ru//",
+      href: "https://flasher.meshworks.ru/",
       icon: "download",
     },
     {
@@ -87,8 +87,8 @@ export function HomepageDownloads() {
     },
     {
       title: "Карта сети",
-      description: "Публичная карта узлов и покрытий Mesh_NMSK.",
-      href: "https://malla.meshnmsk.crazedns.ru/",
+      description: "Публичная карта нод и покрытий MeshWorks.",
+      href: "https://malla.meshworks.ru/",
       icon: "mapPin",
     },
     {
@@ -100,7 +100,7 @@ export function HomepageDownloads() {
     {
       title: "Форум",
       description: "Обсуждения и база знаний в формате сообщества.",
-      href: "t.me/meshtastic_nmsk",
+      href: "https://t.me/meshwrks",
       icon: "message",
       disabled: true,
     },
@@ -110,7 +110,7 @@ export function HomepageDownloads() {
     <section aria-label="Download clients">
       <div className={styles.sectionHeader}>
         <h2>Инструменты</h2>
-        <p>Сервисы и площадки Mesh_NMSK: прошивка, карта сети, документация и общение.</p>
+        <p>Сервисы и площадки MeshWorks: прошивка, карта сети, документация и общение.</p>
       </div>
 
       <div className={styles.grid3}>
