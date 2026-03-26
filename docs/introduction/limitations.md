@@ -3,7 +3,7 @@ title: Ограничения технологии
 description: "Технические ограничения Meshtastic и LoRa: пропускная способность, задержки, нагрузка на эфир и факторы, влияющие на качество связи."
 sidebar_label: Ограничения технологии
 sidebar_position: 3
-breadcrumbs: ["База знаний MeshWorks", "Введение", "Ограничения технологии"]
+breadcrumbs: ["База знаний Mesh_NMSK", "Введение", "Ограничения технологии"]
 ---
 
 <img src="/img/wiki/intro-limitations.png" alt="Intro limitations" class="docImage" />

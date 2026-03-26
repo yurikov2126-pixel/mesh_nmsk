@@ -22,7 +22,7 @@ const items: FaqItem[] = [
     answer: (
       <>
         Основной канал и чат —{" "}
-        <a href="https://t.me/meshwrks" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
+        <a href="https://t.me/meshtastic_nmsk" target="_blank" rel="noopener noreferrer" className={styles.inlineLink}>
           Telegram MeshWorks
         </a>
         . Там же — анонсы, помощь новичкам и обсуждения.
@@ -150,7 +150,7 @@ export function HomepageFaq() {
     <section aria-label="FAQ">
       <div className={styles.sectionHeader}>
         <h2>Сообщество и ответы</h2>
-        <p>Короткие ответы и ссылки на инструменты MeshWorks и разделы вики.</p>
+        <p>Короткие ответы и ссылки на инструменты Mesh_NMSK и разделы вики.</p>
       </div>
 
       <div className={styles.faqList}>
@@ -168,8 +168,8 @@ export function HomepageFaq() {
       </div>
 
       <div className={styles.faqCta}>
-        <a className="button button--primary" href="https://t.me/meshwrks" target="_blank" rel="noopener noreferrer">
-          Перейти в Telegram MeshWorks
+        <a className="button button--primary" href="https://t.me/meshtastic_nmsk" target="_blank" rel="noopener noreferrer">
+          Перейти в Telegram Mesh_NMSK
         </a>
       </div>
     </section>

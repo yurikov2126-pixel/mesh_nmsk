@@ -1,6 +1,6 @@
 ---
 title: FAQ (ликбез)
-description: "Частые вопросы по Meshtastic и MeshWorks: быстрый старт, прошивка, настройка, радиочасть, клиенты, безопасность и диагностика."
+description: "Частые вопросы по Meshtastic и Mesh_NMSK: быстрый старт, прошивка, настройка, радиочасть, клиенты, безопасность и диагностика."
 sidebar_label: FAQ (ликбез)
 slug: /meshtastic/faq
 breadcrumbs: ["База знаний Meshtastic", "FAQ"]
@@ -23,9 +23,9 @@ breadcrumbs: ["База знаний Meshtastic", "FAQ"]
 ### Где общается русскоязычное сообщество?
 
 - Начните с раздела [Сообщества](/community).
-- Основной чат MeshWorks: `t.me/meshwrks`.
+- Основной чат Mesh_NMSK: `t.me/meshtastic_nmsk`.
 
-### Как можно помочь проекту MeshWorks?
+### Как можно помочь проекту Mesh_NMSK?
 
 - Правками и дополнениями вики: [/wiki/how-to-edit](/wiki/how-to-edit).
 - Поддержкой проекта: [/sponsor](/sponsor).

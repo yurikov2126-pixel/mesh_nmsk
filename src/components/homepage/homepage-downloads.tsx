@@ -87,7 +87,7 @@ export function HomepageDownloads() {
     },
     {
       title: "Карта сети",
-      description: "Публичная карта нод и покрытий MeshWorks.",
+      description: "Публичная карта нод и покрытий Mesh_NMSK.",
       href: "https://malla.meshworks.ru/",
       icon: "mapPin",
     },
@@ -100,7 +100,7 @@ export function HomepageDownloads() {
     {
       title: "Форум",
       description: "Обсуждения и база знаний в формате сообщества.",
-      href: "https://t.me/meshwrks",
+      href: "https://t.me/meshtastic_nmsk",
       icon: "message",
       disabled: true,
     },

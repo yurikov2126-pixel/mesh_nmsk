@@ -1,45 +1,25 @@
 ---
 title: Стать спонсором
 slug: /sponsor
-description: "Поддержите MeshWorks: вики, инструменты, прошивальщик и развитие сообщества."
+description: "Поддержите Mesh_NMSK: вики, инструменты, прошивальщик и развитие сообщества."
 ---
 
 <div className="sponsorHero">
   <div className="sponsorHeroMain">
-    <p className="sponsorEyebrow">Поддержка MeshWorks</p>
+    <p className="sponsorEyebrow">Поддержка Mesh_NMSK</p>
     <h1>Поддержите инфраструктуру, которой пользуется сообщество</h1>
     <p className="sponsorLead">
-      MeshWorks - независимый русскоязычный проект про Meshtastic, LoRa mesh‑сети и автономную связь.
+      Mesh_NMSK - независимый русскоязычный проект про Meshtastic, LoRa mesh‑сети и автономную связь.
       Мы поддерживаем вики, инструменты и материалы для новичков.
     </p>
 
-    <div className="sponsorCta">
-      <a className="button button--primary sponsorCtaButton" href="https://boosty.to/meshworks" target="_blank" rel="noopener noreferrer">
-        <span>Перейти на Boosty</span>
-      </a>
-    </div>
-
-    <div className="sponsorMiniGrid">
-      <div className="sponsorMiniCard">
-        <strong>Wiki</strong>
-        <span>статьи и обновления</span>
-      </div>
-      <div className="sponsorMiniCard">
-        <strong>Tools</strong>
-        <span>прошивальщик, карта, сервисы</span>
-      </div>
-      <div className="sponsorMiniCard">
-        <strong>Community</strong>
-        <span>материалы и вход для новичков</span>
-      </div>
-    </div>
   </div>
 
   <div className="sponsorHeroStats">
     <div className="sponsorStatCard">
-      <div className="sponsorStatLabel">Зачем поддерживать</div>
+      <div className="sponsorEyebrow">Зачем поддерживать</div>
       <div className="sponsorStatValue">Чтобы проект жил</div>
-      <p>Поддержка идёт в инфраструктуру, контент и развитие инструментов.</p>
+      <p>Mesh_NMSK-некомерческий проект, мы не нуждаемся в финансовой поддержке. Пользователи поддерживают проект только собственными руками: закупают узлы, устанавливают антенны, пишут софт.</p>
     </div>
   </div>
 </div>
@@ -61,22 +41,19 @@ description: "Поддержите MeshWorks: вики, инструменты, 
 
 ## Как поддержать проект
 
-Самый простой способ - поддержка на Boosty.
-
-## Если не можете / не хотите поддерживать деньгами
 
 <div className="sponsorGrid sponsorGrid--compact">
   <div className="sponsorInfoCard">
     <h3>Правки в вики</h3>
-    <p>Исправления и дополнения.</p>
+    <p>Исправления и дополнения.Сломанные ссылки и устаревшие места</p>
   </div>
   <div className="sponsorInfoCard">
-    <h3>Ошибки и неточности</h3>
-    <p>Сломанные ссылки и устаревшие места.</p>
+    <h3>Покупайте узлы</h3>
+    <p>Это самая главная поддерка проекта</p>
   </div>
   <div className="sponsorInfoCard">
-    <h3>Обратная связь</h3>
-    <p>Что улучшать дальше.</p>
+    <h3>Устанавивайте антенны</h3>
+    <p>Тем самым вы будете помогать раширению покрытия сети.</p>
   </div>
 </div>
 

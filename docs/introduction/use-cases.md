@@ -3,7 +3,7 @@ title: Сценарии применения
 description: "Сценарии применения mesh‑сетей: походы, автоколонны, аварийная связь, локальные сообщества и телеметрия, а также выбор подходящего стека (Meshtastic, Meshcore, Reticulum)."
 sidebar_label: Сценарии применения
 sidebar_position: 2
-breadcrumbs: ["База знаний MeshWorks", "Введение", "Сценарии применения"]
+breadcrumbs: ["База знаний Mesh_NMSK", "Введение", "Сценарии применения"]
 ---
 
 <img src="/img/wiki/intro-use-cases.png" alt="Intro use cases" class="docImage" />

@@ -4,7 +4,7 @@ description: "Раздел по MeshCore: быстрый старт, роли (c
 sidebar_label: MeshCore
 sidebar_position: 1
 slug: /meshcore
-breadcrumbs: ["База знаний MeshWorks", "MeshCore"]
+breadcrumbs: ["База знаний Mesh_NMSK", "MeshCore"]
 ---
 
 MeshCore - экосистема для защищённой текстовой связи на LoRa: прошивки для радиоустройств, клиенты и “серверные” роли вроде `repeater` и `room server`.

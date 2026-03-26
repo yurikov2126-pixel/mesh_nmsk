@@ -4,7 +4,7 @@ description: "Раздел по Meshtastic: устройства, настрой
 sidebar_label: Meshtastic
 sidebar_position: 1
 slug: /meshtastic
-breadcrumbs: ["База знаний MeshWorks", "Meshtastic"]
+breadcrumbs: ["База знаний Mesh_NMSK", "Meshtastic"]
 ---
 
 Этот раздел объединяет материалы по Meshtastic: быстрый старт для новичков, настройка ноды, клиенты, безопасность, антенны и устранение проблем.

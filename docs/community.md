@@ -1,6 +1,6 @@
 ---
 title: Сообщества
-description: "Сообщества Meshtastic и MeshWorks: ссылки на чаты, региональные группы и площадки для обмена опытом по настройке сетей."
+description: "Сообщества Meshtastic и Mesh_NMSK: ссылки на чаты, региональные группы и площадки для обмена опытом по настройке сетей."
 sidebar_label: Сообщества
 sidebar_position: 6
 breadcrumbs: ["База знаний Meshtastic", "Сообщества"]
@@ -8,13 +8,13 @@ breadcrumbs: ["База знаний Meshtastic", "Сообщества"]
 Экосистема Meshtastic активно развивается — появляются региональные сети, локальные ретрансляторы, DIY-проекты и тестовые зоны покрытия. Вокруг технологии сформировалось несколько крупных сообществ, где участники **обмениваются опытом**, **делятся настройками**, обсуждают оборудование и совместно развивают сеть.
 
 :::tip
-**Канал нашего сообщества MeshWorks:** [t.me/meshwrks](https://t.me/meshwrks)
+**Канал нашего сообщества Mesh_NMSK:** [t.me/meshtastic_nmsk](https://t.me/meshtastic_nmsk)
 
 **Крупные русскоязычные сообщества Meshtastic:**
 - [t.me/meshtastic_russia](https://t.me/meshtastic_russia) — основной канал по Meshtastic в России
 - [t.me/meshtastic_moscow](https://t.me/meshtastic_moscow) — московское сообщество
 
-**Как помочь MeshWorks:**
+**Как помочь Mesh_NMSK:**
 - Правками вики: [/wiki/how-to-edit](/wiki/how-to-edit)
 - Поддержать проект: [/sponsor](/sponsor)
 

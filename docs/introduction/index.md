@@ -3,7 +3,7 @@ title: Введение в mesh‑сети
 sidebar_label: Введение в mesh‑сети
 sidebar_position: 1
 slug: /introduction
-breadcrumbs: ["База знаний MeshWorks", "Введение"]
+breadcrumbs: ["База знаний Mesh_NMSK", "Введение"]
 description: "Что такое mesh‑сети и как в эту картину вписываются Meshtastic, Meshcore и Reticulum."
 ---
 

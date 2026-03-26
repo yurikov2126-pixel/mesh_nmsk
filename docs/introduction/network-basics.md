@@ -3,7 +3,7 @@ title: Принципы работы сети
 description: "Как устроена mesh‑сеть Meshtastic: передача сообщений, роль нод, децентрализация и самоорганизация LoRa‑сети без центральной инфраструктуры."
 sidebar_label: Принципы работы сети
 sidebar_position: 1
-breadcrumbs: ["База знаний MeshWorks", "Введение", "Принципы работы сети"]
+breadcrumbs: ["База знаний Mesh_NMSK", "Введение", "Принципы работы сети"]
 ---
 
 import MeshNetworkAnimation from '@site/src/components/introduction/MeshNetworkAnimation';

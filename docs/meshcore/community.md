@@ -10,12 +10,12 @@ breadcrumbs: ["База знаний MeshCore", "Сообщество"]
 Здесь собраны публичные ссылки на городские чаты MeshCore. Список может устаревать: если нужно добавить/исправить ссылку — удобнее всего прислать PR/issue в репозиторий вики.
 
 :::tip
-**Канал нашего сообщества MeshWorks:** [t.me/meshwrks](https://t.me/meshwrks)
+**Канал нашего сообщества Mesh_NMSK:** [t.me/meshtastic_nmsk](https://t.me/meshtastic_nmsk)
 
 **Крупные русскоязычные сообщества Meshcore:**
 - [t.me/meshcore_rulang](https://t.me/meshcore_rulang) — основной канал по Meshtastic в России
 
-**Как помочь MeshWorks:**
+**Как помочь Mesh_NMSK:**
 - Правками вики: [/wiki/how-to-edit](/wiki/how-to-edit)
 - Поддержать проект: [/sponsor](/sponsor)
 
