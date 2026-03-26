@@ -1,7 +1,8 @@
 import React from 'react';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import PortableCopyCatalog from './PortableCopyCatalog';
+import { DEVICE_DATA } from './portable-catalog/data';
 
 /** Find a device card by its heading title and click the "Купить" button inside it. */
 function clickBuyForDevice(deviceTitle: string) {
@@ -12,15 +13,62 @@ function clickBuyForDevice(deviceTitle: string) {
 }
 
 describe('PortableCopyCatalog', () => {
+  it('copies device href from the share button with clipboard API and shows copied state', async () => {
+    const thinkNode = DEVICE_DATA.universal.find((device) => device.title === 'ThinkNode M1');
+    const clipboardWriteText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: { writeText: clipboardWriteText },
+    });
+
+    render(<PortableCopyCatalog />);
+
+    const heading = screen.getByRole('heading', { name: 'ThinkNode M1' });
+    const card = heading.closest('article')!;
+    const shareButton = within(card).getByRole('button', { name: 'Поделиться' });
+
+    fireEvent.click(shareButton);
+
+    await waitFor(() => {
+      expect(clipboardWriteText).toHaveBeenCalledOnce();
+    });
+    expect(thinkNode?.href).toBeDefined();
+    expect(clipboardWriteText).toHaveBeenCalledWith(thinkNode!.href);
+    expect(within(card).getByRole('button', { name: 'Ссылка на устройство скопирована' })).toBeInTheDocument();
+  });
+
+  it('falls back to document.execCommand when clipboard API is unavailable', async () => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: undefined,
+    });
+    const execCommandSpy = vi.fn(() => true);
+    Object.defineProperty(document, 'execCommand', {
+      configurable: true,
+      value: execCommandSpy,
+    });
+
+    render(<PortableCopyCatalog />);
+
+    const heading = screen.getByRole('heading', { name: 'ThinkNode M1' });
+    const card = heading.closest('article')!;
+    fireEvent.click(within(card).getByRole('button', { name: 'Поделиться' }));
+
+    await waitFor(() => {
+      expect(execCommandSpy).toHaveBeenCalledWith('copy');
+    });
+  });
+
   it('renders default sections and cards from multiple categories', () => {
     render(<PortableCopyCatalog />);
 
-    expect(screen.getByRole('region', { name: 'Универсальные' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Готовые' })).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Солнечные' })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: 'Отдельные платы' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Универсальные' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Платы' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Готовые' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Солнечные' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Отдельные платы' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Платы' })).toBeInTheDocument();
+    expect(screen.queryByText('Отдельные платы')).not.toBeInTheDocument();
 
     expect(screen.getByRole('heading', { name: 'ThinkNode M1' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'D5 Mini Solar Kit (Heltec V3)' })).toBeInTheDocument();
@@ -32,8 +80,8 @@ describe('PortableCopyCatalog', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Солнечные' }));
 
-    expect(screen.queryByRole('region', { name: 'Универсальные' })).not.toBeInTheDocument();
-    expect(screen.queryByRole('region', { name: 'Отдельные платы' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Готовые' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Платы' })).not.toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Солнечные' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'D5 Mini Solar Kit (Heltec V3)' })).toBeInTheDocument();
   });
@@ -51,12 +99,12 @@ describe('PortableCopyCatalog', () => {
   it('applies combined category and tech filters', () => {
     render(<PortableCopyCatalog />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Отдельные платы' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Платы' }));
 
     const techGroup = screen.getByRole('group', { name: 'Фильтр по чипу' });
     fireEvent.click(within(techGroup).getByRole('button', { name: 'NRF' }));
 
-    expect(screen.getByRole('region', { name: 'Отдельные платы' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Платы' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'FakeTec V5.5' })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: 'ThinkNode M1' })).not.toBeInTheDocument();
   });
@@ -85,15 +133,15 @@ describe('PortableCopyCatalog', () => {
   it('sorts by price ascending', () => {
     render(<PortableCopyCatalog />);
 
-    // Filter to "Отдельные платы" so we have a manageable subset
-    fireEvent.click(screen.getByRole('button', { name: 'Отдельные платы' }));
+    // Filter to "Платы" so we have a manageable subset
+    fireEvent.click(screen.getByRole('button', { name: 'Платы' }));
 
     // Change sort to "Сначала дешевле"
     const sortSelect = screen.getByRole('combobox', { name: 'Сортировка' });
     fireEvent.change(sortSelect, { target: { value: 'price-asc' } });
 
     // Get all card headings within the boards section
-    const boardsSection = screen.getByRole('region', { name: 'Отдельные платы' });
+    const boardsSection = screen.getByRole('region', { name: 'Платы' });
     const headings = within(boardsSection).getAllByRole('heading', { level: 3 });
     const titles = headings.map((h) => h.textContent);
 
@@ -101,15 +149,34 @@ describe('PortableCopyCatalog', () => {
     expect(titles[0]).toBe('Heltec Wireless Stick Lite / Mesh Nod');
   });
 
+  it('sorts by price ascending across all categories when category filter is "Все"', () => {
+    render(<PortableCopyCatalog />);
+
+    // Change sort to "Сначала дешевле" without narrowing categories
+    const sortSelect = screen.getByRole('combobox', { name: 'Сортировка' });
+    fireEvent.change(sortSelect, { target: { value: 'price-asc' } });
+
+    // We should now have a single combined section
+    expect(screen.queryByRole('region', { name: 'Готовые' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Солнечные' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Платы' })).not.toBeInTheDocument();
+
+    const allSection = screen.getByRole('region', { name: 'Все устройства' });
+    const headings = within(allSection).getAllByRole('heading', { level: 3 });
+    const titles = headings.map((h) => h.textContent);
+
+    expect(titles[0]).toBe('Heltec Wireless Stick Lite / Mesh Nod');
+  });
+
   it('sorts by price descending', () => {
     render(<PortableCopyCatalog />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Отдельные платы' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Платы' }));
 
     const sortSelect = screen.getByRole('combobox', { name: 'Сортировка' });
     fireEvent.change(sortSelect, { target: { value: 'price-desc' } });
 
-    const boardsSection = screen.getByRole('region', { name: 'Отдельные платы' });
+    const boardsSection = screen.getByRole('region', { name: 'Платы' });
     const headings = within(boardsSection).getAllByRole('heading', { level: 3 });
     const titles = headings.map((h) => h.textContent);
 
@@ -176,9 +243,9 @@ describe('PortableCopyCatalog', () => {
     // Mock DEVICE_DATA with empty categories to trigger the empty state
     vi.doMock('./portable-catalog/data', () => ({
       DEVICE_CATEGORY_LABELS: {
-        universal: 'Универсальные',
+        universal: 'Готовые',
         solar: 'Солнечные',
-        boards: 'Отдельные платы',
+        boards: 'Платы',
       },
       DEVICE_DATA: {
         universal: [],

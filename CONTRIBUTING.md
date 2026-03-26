@@ -8,7 +8,7 @@
 ### Через интерфейс GitHub (самый простой)
 Этот вариант подойдёт, если нужно поправить текст, ссылку или картинку и не хочется настраивать окружение локально.
 
-1. Откройте нужную страницу на https://wiki.meshtastik-nmsk.ru/ и нажмите **«Отредактировать эту страницу»**.
+1. Откройте нужную страницу на https://wiki.meshtastik-nmsk.ru и нажмите **«Отредактировать эту страницу»**.
 2. GitHub откроет исходный файл и предложит создать ветку и Pull Request.
 3. Внесите правки, напишите краткое описание изменений и отправьте PR.
 
@@ -119,4 +119,4 @@
 - Для багов (опечатка, 404, дубли) используйте шаблон **Баг**.
 
 ## 7. Лицензия
-- Репозиторий распространяется под [CC BY-SA 4.0](https://github.com/yurikov2126-pixel/mesh_nmsk/blob/deployment/LICENSE); русскоязычное описание — в [LICENSE.ru.md](https://github.com/yurikov2126-pixel/mesh_nmsk/blob/deployment/LICENSE.ru.md).
+- Репозиторий распространяется под [CC BY-SA 4.0](https://github.com/yurikov2126-pixel/mesh_nmsk/blob/main/LICENSE); русскоязычное описание — в [LICENSE.ru.md](https://github.com/yurikov2126-pixel/mesh_nmsk/blob/main/LICENSE.ru.md).

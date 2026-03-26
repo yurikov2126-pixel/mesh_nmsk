@@ -27,18 +27,36 @@ if (typeof globalThis !== 'undefined' && 'localStorage' in globalThis) {
 const enablePwa = process.env.NODE_ENV === 'production';
 
 const config: Config = {
-  title: 'Mesh-NMSK',
-  tagline: 'База знаний Mesh-NMSK',
+  title: 'Mesh_NMSK',
+  tagline: 'База знаний Mesh_NMSK',
   favicon: 'img/favicon-light.png',
   headTags: [
     {
       tagName: 'link',
-        attributes: {
-          rel: 'icon',
-          type: 'image/png',
-          href: '/img/favicon-light.png',
-        },
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/img/favicon-light.png',
+        media: '(prefers-color-scheme: light)',
       },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/img/favicon-light.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/img/favicon-light.png',
+      },
+    },
     {
       tagName: 'script',
       attributes: {
@@ -47,11 +65,12 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SiteNavigationElement',
-        name: ['База знаний', 'Контрибьютинг', 'О нас'],
+        name: ['База знаний', 'Контрибьютинг', 'О нас', 'Стать спонсором'],
         url: [
           'https://wiki.meshtastik-nmsk.ru/',
           'https://wiki.meshtastik-nmsk.ru/wiki/how-to-edit',
           'https://wiki.meshtastik-nmsk.ru/about',
+          'https://wiki.meshtastik-nmsk.ru/sponsor',
         ],
       }),
     },
@@ -63,7 +82,7 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        name: 'Meshtastic Новомосковск',
+        name: 'Mesh_NMSK Wiki',
         url: 'https://wiki.meshtastik-nmsk.ru',
         inLanguage: 'ru',
         potentialAction: {
@@ -81,12 +100,13 @@ const config: Config = {
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Organization',
-        name: 'Meshtastic Новомосковск',
+        name: 'Mesh_NMSK',
         url: 'https://wiki.meshtastik-nmsk.ru',
         logo: 'https://wiki.meshtastik-nmsk.ru/img/logo-light.png',
         sameAs: [
           'https://t.me/meshtastic_nmsk',
           'https://www.youtube.com/@meshwrks',
+          'https://boosty.to/meshworks',
         ],
       }),
     },
@@ -117,7 +137,7 @@ const config: Config = {
     'https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@400;500;600&display=swap',
     'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap',
   ],
-  organizationName: 'Mesh-NMSK',
+  organizationName: 'meshworks',
   projectName: 'wiki',
   onBrokenLinks: 'throw',
   markdown: {
@@ -137,7 +157,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           breadcrumbs: true,
-          editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/deployment/',
+          editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/deployment_v2/',
           admonitions: {
             keywords: ['favorite'],
             extendDefaults: true,
@@ -210,7 +230,7 @@ const config: Config = {
         routeBasePath: '/',
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,
-        editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/deployment/',
+        editUrl: 'https://github.com/yurikov2126-pixel/mesh_nmsk/edit/deployment_v2/',
       },
     ],
     ...(enablePwa
@@ -243,16 +263,16 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'Mesh-NMSK Wiki — русскоязычная база знаний о Meshtastic, LoRa mesh-сетях и устройствах для автономной связи.',
+          'Mesh_NMSK Wiki — русскоязычная база знаний о Meshtastic, LoRa mesh-сетях и устройствах для автономной связи.',
       },
       {
         name: 'keywords',
         content:
-          'meshtastic, Mesh-NMSK, Meshtastic Новомосковск, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
+          'meshtastic, Mesh_NMSK, lora mesh, loRa сеть, автономная связь, wiki meshtastic, инструкции lora',
       },
       {
         property: 'og:site_name',
-        content: 'Mesh-NMSK Wiki',
+        content: 'Mesh_NMSK Wiki',
       },
       {
         property: 'og:locale',
@@ -263,13 +283,13 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     breadcrumbs: {
-      homePageLabel: 'Mesh-NMSK',
+      homePageLabel: 'Mesh_NMSK',
     },
     // Algolia is disabled; using local search plugin
     navbar: {
-      title: 'Mesh-NMSK',
+      title: 'Mesh_NMSK',
       logo: {
-        alt: 'Mesh-NMSK',
+        alt: 'Mesh_NMSK',
         src: 'img/logo-light.png',
         srcDark: 'img/logo-dark.png',
       },
@@ -299,6 +319,12 @@ const config: Config = {
           activeBaseRegex: '^/about/?$',
         },
         {
+          to: '/sponsor',
+          label: 'Стать спонсором',
+          position: 'right',
+          activeBaseRegex: '^/sponsor/?$',
+        },
+        {
           type: 'search',
           position: 'right',
         },
@@ -311,14 +337,13 @@ const config: Config = {
           html: [
             "<div class='footer__links-row'>",
             "<a href='https://www.youtube.com/@meshwrks' target='_blank' rel='noreferrer noopener'>YouTube</a>",
-            "<a href='https://t.me/meshtastic_nmsk' target='_blank' rel='noreferrer noopener'>Telegram</a>",
             "<a href='https://malla.meshnmsk.crazedns.ru/' target='_blank' rel='noreferrer noopener'>Malla</a>",
             '</div>',
             "<div class='footer__trademark'>Meshtastic® is a registered trademark of Meshtastic LLC.</div>",
           ].join(''),
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Mesh-NMSK`,
+      copyright: `© ${new Date().getFullYear()} Mesh_NMSK`,
     },
     prism: {
       theme: prismThemes.github,
