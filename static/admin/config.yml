@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: yurikov2126-pixel/mesh_nmsk
-  branch: main
+  branch: deployment_v2
   base_url: https://auth.meshtastik-nmsk.ru
   auth_endpoint: decap/auth
 
