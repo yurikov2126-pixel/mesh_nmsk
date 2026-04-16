@@ -76,13 +76,13 @@ export function HomepageDownloads() {
     {
       title: "Прошивальщик",
       description: "Прошивка Meshtastic-устройств через браузер: быстро и удобно.",
-      href: "https://flasher.meshworks.ru/",
+      href: "https://flasher.meshtastik-nmsk.ru/",
       icon: "download",
     },
     {
       title: "Веб‑клиент",
       description: "Клиент для управления нодами Meshtastic прямо в браузере.",
-      href: "https://client.meshworks.ru/",
+      href: "http://client.meshtastik-nmsk.ru/",
       icon: "phone",
     },
     {

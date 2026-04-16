@@ -26,7 +26,7 @@ description: "Поддержите Mesh_NMSK: вики, инструменты, 
 
 <div className="sponsorGrid">
   <div className="sponsorInfoCard">
-    <h3>Инфраструктура</h3>
+    <h3>Наша инфраструктура</h3>
     <p>Хостинг, домены и сервисы.</p>
   </div>
   <div className="sponsorInfoCard">
@@ -45,7 +45,7 @@ description: "Поддержите Mesh_NMSK: вики, инструменты, 
 <div className="sponsorGrid sponsorGrid--compact">
   <div className="sponsorInfoCard">
     <h3>Правки в вики</h3>
-    <p>Исправления и дополнения.Сломанные ссылки и устаревшие места</p>
+    <p>Исправления и дополнения на сайте. Находите сломанные ссылки и устаревшие места</p>
   </div>
   <div className="sponsorInfoCard">
     <h3>Покупайте узлы</h3>
