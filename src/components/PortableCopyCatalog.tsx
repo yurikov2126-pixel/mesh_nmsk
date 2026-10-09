@@ -1,5 +1,5 @@
 import React, { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowUpDown, Battery, Bluetooth, Compass, Cpu, LayoutGrid, List, MapPin, Sun, Wifi, Zap } from './icons/lucide';
+import { ArrowUpDown, Battery, Bluetooth, Compass, Cpu, LayoutGrid, List, MapPin, Share2, Sun, Wifi, Zap } from './icons/lucide';
 import styles from './portable-catalog/PortableCopyCatalog.module.css';
 import { DEVICE_CATEGORY_LABELS, DEVICE_DATA } from './portable-catalog/data';
 import type { DeviceCategory, DeviceItem, DeviceTech } from './portable-catalog/types';
@@ -12,15 +12,14 @@ type SortOption = 'default' | 'price-asc' | 'price-desc';
 type FilterOption<T extends string> = {
   value: T;
   label: string;
-  shortLabel?: string;
   Icon?: React.ComponentType<React.SVGProps<SVGSVGElement> & { className?: string }>;
 };
 
 const CATEGORY_OPTIONS: Array<FilterOption<CategoryFilter>> = [
   { value: 'all', label: 'Все' },
-  { value: 'universal', label: 'Универсальные', Icon: Compass },
+  { value: 'universal', label: 'Готовые', Icon: Compass },
   { value: 'solar', label: 'Солнечные', Icon: Sun },
-  { value: 'boards', label: 'Отдельные платы', shortLabel: 'Платы', Icon: Cpu },
+  { value: 'boards', label: 'Платы', Icon: Cpu },
 ];
 
 const TECH_OPTIONS: Array<FilterOption<TechFilter>> = [
@@ -32,25 +31,10 @@ const TECH_OPTIONS: Array<FilterOption<TechFilter>> = [
 function renderOptionLabel<T extends string>(option: FilterOption<T>): ReactNode {
   const Icon = option.Icon;
 
-  if (!option.shortLabel) {
-    return (
-      <>
-        {Icon ? <Icon className={styles.filterIcon} aria-hidden="true" focusable="false" /> : null}
-        {option.label}
-      </>
-    );
-  }
-
   return (
     <>
-      <span className={styles.filterLabelDesktop} aria-hidden="true">
-        {Icon ? <Icon className={styles.filterIcon} aria-hidden="true" focusable="false" /> : null}
-        {option.label}
-      </span>
-      <span className={styles.filterLabelMobile} aria-hidden="true">
-        {Icon ? <Icon className={styles.filterIcon} aria-hidden="true" focusable="false" /> : null}
-        {option.shortLabel}
-      </span>
+      {Icon ? <Icon className={styles.filterIcon} aria-hidden="true" focusable="false" /> : null}
+      {option.label}
     </>
   );
 }
@@ -93,14 +77,42 @@ function openHrefInNewTab(href: string): void {
   window.open(href, '_blank', 'noopener,noreferrer');
 }
 
+function copyTextWithFallback(text: string): Promise<void> {
+  if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  textarea.style.pointerEvents = 'none';
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    document.execCommand('copy');
+  } finally {
+    document.body.removeChild(textarea);
+  }
+
+  return Promise.resolve();
+}
+
 function renderDeviceCard(
   device: DeviceItem,
   onPurchaseClick: (device: DeviceItem) => void,
+  onShareClick: (device: DeviceItem) => void,
+  copiedDeviceKey: string | null,
   opts?: { featured?: boolean },
 ): ReactNode {
   const featured = Boolean(opts?.featured);
   const ctaText = device.ctaLabel ?? 'Купить';
   const videoText = device.videoLabel ?? 'Видео';
+  const deviceKey = getDeviceKey(device);
+  const shareCopied = copiedDeviceKey === deviceKey;
+  const shareLabel = shareCopied ? 'Ссылка на устройство скопирована' : 'Поделиться';
 
   const hasBluetooth = device.badges.some((b) => b.label.toLowerCase().includes('bluetooth') && !b.off);
   const hasWifi = device.badges.some((b) => b.label.toLowerCase().includes('wi-fi') && !b.off);
@@ -137,8 +149,20 @@ function renderDeviceCard(
 
       <div className={styles.deviceContent}>
         <div className={styles.deviceHeader}>
-          <h3 className={styles.deviceTitle}>{device.title}</h3>
-          
+          <div className={styles.deviceHeadingRow}>
+            <h3 className={styles.deviceTitle}>{device.title}</h3>
+            <button
+              className={styles.shareButton}
+              type="button"
+              aria-label={shareLabel}
+              data-share-state={shareCopied ? 'copied' : 'idle'}
+              data-share-label={shareLabel}
+              onClick={() => onShareClick(device)}
+            >
+              <Share2 className={styles.shareIcon} aria-hidden="true" focusable="false" />
+            </button>
+          </div>
+
           <div className={styles.deviceFeatures}>
             <div className={`${styles.featureItem} ${hasBluetooth ? styles.featureActive : styles.featureInactive}`} title={hasBluetooth ? "Bluetooth есть" : "Bluetooth нет"}>
               <Bluetooth className={styles.featureIcon} />
@@ -188,7 +212,11 @@ export default function PortableCopyCatalog(): ReactNode {
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [sortOption, setSortOption] = useState<SortOption>('default');
   const [purchaseConfirmState, setPurchaseConfirmState] = useState<PurchaseConfirmState | null>(null);
+  const [copiedDeviceKey, setCopiedDeviceKey] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const shareResetTimerRef = useRef<number | null>(null);
+
+  const isGlobalPriceSort = categoryFilter === 'all' && sortOption !== 'default';
 
   const featuredDevices = useMemo(() => {
     const all: Array<{ category: DeviceCategory; device: DeviceItem }> = [];
@@ -206,6 +234,16 @@ export default function PortableCopyCatalog(): ReactNode {
   const featuredKeys = useMemo(() => {
     return new Set(featuredDevices.map(getDeviceKey));
   }, [featuredDevices]);
+
+  const globallySortedDevices = useMemo(() => {
+    if (!isGlobalPriceSort) {
+      return [];
+    }
+
+    const categories: DeviceCategory[] = ['universal', 'solar', 'boards'];
+    const allDevices = categories.flatMap((category) => filterByTech(DEVICE_DATA[category], techFilter));
+    return sortDevices(allDevices, sortOption);
+  }, [isGlobalPriceSort, sortOption, techFilter]);
 
   const visibleCategories = useMemo(() => {
     const categories: DeviceCategory[] = categoryFilter === 'all' ? ['universal', 'solar', 'boards'] : [categoryFilter];
@@ -263,6 +301,26 @@ export default function PortableCopyCatalog(): ReactNode {
     setPurchaseConfirmState({ device, open: true });
   };
 
+  const onShareClick = async (device: DeviceItem) => {
+    const nextCopiedKey = getDeviceKey(device);
+
+    try {
+      await copyTextWithFallback(device.href);
+      setCopiedDeviceKey(nextCopiedKey);
+
+      if (shareResetTimerRef.current) {
+        window.clearTimeout(shareResetTimerRef.current);
+      }
+
+      shareResetTimerRef.current = window.setTimeout(() => {
+        setCopiedDeviceKey((currentKey) => (currentKey === nextCopiedKey ? null : currentKey));
+        shareResetTimerRef.current = null;
+      }, 2200);
+    } catch {
+      setCopiedDeviceKey(null);
+    }
+  };
+
   const closePurchaseConfirm = () => setPurchaseConfirmState(null);
 
   const confirmPurchase = () => {
@@ -273,18 +331,26 @@ export default function PortableCopyCatalog(): ReactNode {
     closePurchaseConfirm();
   };
 
+  useEffect(() => {
+    return () => {
+      if (shareResetTimerRef.current) {
+        window.clearTimeout(shareResetTimerRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section className={`${styles.catalog} ${styles.vibe} meshtastic-home`} aria-label="Каталог устройств Meshtastic">
       <div className={styles.layoutGrid}>
         <div className={styles.mainColumn}>
-          {featuredDevices.length > 0 ? (
+          {!isGlobalPriceSort && featuredDevices.length > 0 ? (
             <section className={styles.featuredSection} aria-label="Выбор сообщества">
               <header className={styles.categoryHeader}>
                 <h2 className={styles.categoryTitle}>Выбор сообщества</h2>
                 <p className={styles.categoryMeta}>{featuredDevices.length} шт.</p>
               </header>
               <div className={styles.featuredGrid}>
-                {featuredDevices.map((device) => renderDeviceCard(device, onPurchaseClick, { featured: true }))}
+                {featuredDevices.map((device) => renderDeviceCard(device, onPurchaseClick, onShareClick, copiedDeviceKey, { featured: true }))}
               </div>
             </section>
           ) : null}
@@ -365,7 +431,7 @@ export default function PortableCopyCatalog(): ReactNode {
               <ul className={styles.helpList}>
                 <li className={styles.helpItem}>
                   <Compass className={styles.helpIcon} />
-                  <span><strong>Универсальные</strong> - готовые переносные ноды.</span>
+                  <span><strong>Готовые</strong> - готовые переносные ноды.</span>
                 </li>
                 <li className={styles.helpItem}>
                   <Sun className={styles.helpIcon} />
@@ -373,7 +439,7 @@ export default function PortableCopyCatalog(): ReactNode {
                 </li>
                 <li className={styles.helpItem}>
                   <Cpu className={styles.helpIcon} />
-                  <span><strong>Отдельные платы</strong> - DIY-платы и проекты для самостоятельной сборки.</span>
+                  <span><strong>Платы</strong> - платы и проекты для самостоятельной сборки нод.</span>
                 </li>
               </ul>
             </div>
@@ -383,7 +449,7 @@ export default function PortableCopyCatalog(): ReactNode {
               <ul className={styles.helpList}>
                 <li className={styles.helpItem}>
                   <Battery className={styles.helpIcon} />
-                  <span><strong>NRF</strong> - ниже мощность, выше автономность, лучше для батарейных узлов.</span>
+                  <span><strong>NRF</strong> - ниже мощность, выше автономность, лучше для батарейных нод.</span>
                 </li>
                 <li className={styles.helpItem}>
                   <Zap className={styles.helpIcon} />
@@ -394,7 +460,21 @@ export default function PortableCopyCatalog(): ReactNode {
           </section>
 
           <div className={`${styles.devicePanels} ${viewMode === 'list' ? styles.listView : ''}`}>
-            {visibleCategories.length === 0 ? (
+            {isGlobalPriceSort ? (
+              globallySortedDevices.length === 0 ? (
+                <p className={styles.emptyState}>Нет устройств для выбранных фильтров.</p>
+              ) : (
+                <section className={styles.categorySection} aria-label="Все устройства">
+                  <header className={styles.categoryHeader}>
+                    <h2 className={styles.categoryTitle}>Все устройства</h2>
+                    <p className={styles.categoryMeta}>{globallySortedDevices.length} шт.</p>
+                  </header>
+                  <div className={styles.deviceGrid}>
+                    {globallySortedDevices.map((device) => renderDeviceCard(device, onPurchaseClick, onShareClick, copiedDeviceKey))}
+                  </div>
+                </section>
+              )
+            ) : visibleCategories.length === 0 ? (
               <p className={styles.emptyState}>Нет устройств для выбранных фильтров.</p>
             ) : (
               visibleCategories.map(({ category, label, devices }) => (
@@ -403,7 +483,7 @@ export default function PortableCopyCatalog(): ReactNode {
                     <h2 className={styles.categoryTitle}>{label}</h2>
                     <p className={styles.categoryMeta}>{devices.length} шт.</p>
                   </header>
-                  <div className={styles.deviceGrid}>{devices.map((device) => renderDeviceCard(device, onPurchaseClick))}</div>
+                  <div className={styles.deviceGrid}>{devices.map((device) => renderDeviceCard(device, onPurchaseClick, onShareClick, copiedDeviceKey))}</div>
                 </section>
               ))
             )}

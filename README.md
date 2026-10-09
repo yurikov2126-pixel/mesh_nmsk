@@ -1,11 +1,11 @@
 # Mesh_NMSK Wiki
 
-Mesh-NMSK Wiki — публичная база знаний по Meshtastic и инфраструктуре Mesh_NMSK.  
-Репозиторий хранит весь исходный код Docusaurus‑сайта, который развёрнут на https://wiki.meshtastik-nmsk.ru/
+Mesh_NMSK Wiki — публичная база знаний по Meshtastic и инфраструктуре Mesh_NMSK.  
+Репозиторий хранит весь исходный код Docusaurus‑сайта, который развёрнут на https://wiki.meshtastik-nmsk.ru
 
 
 ## Как контрибьютить
-Полный процесс описан в [CONTRIBUTING](CONTRIBUTING.md) и на https://wiki.meshtastik-nmsk.ru/y/wiki/how-to-edit.
+Полный процесс описан в [CONTRIBUTING](CONTRIBUTING.md) и на https://wiki.meshtastik-nmsk.ru/wiki/how-to-edit.
 
 ## Быстрый старт
 Требования: Node.js ≥ 20, npm 10.
